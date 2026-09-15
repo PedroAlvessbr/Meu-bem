@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<meta name="referrer" content="no-referrer">
+
+<title>Meu bem</title>
+<meta name="theme-color" content="#F5F2EC">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --papel:#F5F2EC;
+  --papel-fundo:#EDE8DE;
+  --tinta:#171614;
+  --cinza:#8A857B;
+  --linha:#DCD6CA;
+  --caneta:#2C4A6B;
+
+  --larg:clamp(320px,92vw,560px);
+  --sombra:0 1px 0 rgba(23,22,20,.04),0 18px 40px -28px rgba(23,22,20,.45);
+
+  --safe-b:env(safe-area-inset-bottom,0px);
+  --safe-t:env(safe-area-inset-top,0px);
+}
+
+*,*::before,*::after{
+  box-sizing:border-box;
+}
+
+html{
+  -webkit-text-size-adjust:100%;
+}
+
+body{
+  margin:0;
+  background:var(--papel);
+  color:var(--tinta);
+  font-family:"Newsreader",Georgia,"Times New Roman",serif;
+  font-size:1.0625rem;
+  line-height:1.65;
+  font-weight:300;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  background:
+    radial-gradient(120% 60% at 50% 0%,rgba(255,255,255,.65),transparent 60%),
+    radial-gradient(100% 50% at 50% 100%,rgba(23,22,20,.05),transparent 60%);
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+::selection{
+  background:rgba(44,74,107,.18);
+}
+
+:focus-visible{
+  outline:2px solid var(--caneta);
+  outline-offset:3px;
+  border-radius:2px;
+}
+
+#portao{
+  position:fixed;
+  inset:0;
+  z-index:50;
+  background:var(--papel);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:calc(2rem + var(--safe-t)) 1.6rem calc(2rem + var(--safe-b));
+  transition:opacity .9s ease,visibility .9s;
+}
+
+#portao.aberto{
+  opacity:0;
+  visibility:hidden;
+}
+
+.portao-caixa{
+  width:100%;
+  max-width:26rem;
+  margin:0 auto;
+}
+
+.portao-cabecalho{
+  margin-bottom:2.2rem;
+}
+
+.portao-cabecalho p{
+  margin:0;
+  font-style:italic;
+  color:var(--cinza);
+  font-size:1.05rem;
+}
+
+.portao-pergunta{
+  font-family:"Caveat","Segoe Script",cursive;
+  font-size:2.35rem;
+  line-height:1.15;
+  margin:.4rem 0 0;
+  color:var(--tinta);
+}
+
+.campo{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  border-bottom:1px solid var(--tinta);
+  padding-bottom:.55rem;
+}
+
+.campo input{
+  flex:1;
+  min-width:0;
+  border:0;
+  background:transparent;
+  font-family:"Caveat",cursive;
+  font-size:2rem;
+  color:var(--caneta);
+  padding:0;
+}
+
+.campo input::placeholder{
+  color:var(--linha);
+}
+
+.campo input:focus{
+  outline:none;
+}
+
+.campo button{
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  font-family:"Newsreader",serif;
+  font-style:italic;
+  font-size:1rem;
+  color:var(--cinza);
+  padding:.3rem .1rem;
+}
+
+.campo button:hover{
+  color:var(--caneta);
+}
+
+.campo.errou{
+  animation:treme .45s ease;
+}
+
+@keyframes treme{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-7px)}
+  40%{transform:translateX(6px)}
+  60%{transform:translateX(-4px)}
+  80%{transform:translateX(2px)}
+}
+
+#dicas{
+  margin-top:2rem;
+  display:grid;
+  gap:1.6rem;
+}
+
+.dica{
+  opacity:0;
+  transform:translateY(8px);
+  animation:sobe .7s ease forwards;
+  border-left:1px solid var(--linha);
+  padding-left:1rem;
+}
+
+.dica p{
+  margin:0;
+  color:var(--cinza);
+}
+
+.dica .erro{
+  color:var(--tinta);
+  font-size:1.05rem;
+  margin-bottom:.45rem;
+}
+
+.dica .rotulo-dica{
+  font-style:italic;
+  font-size:.85rem;
+  color:var(--cinza);
+}
+
+.dica strong{
+  display:block;
+  margin-top:.1rem;
+  font-family:"Caveat",cursive;
+  font-weight:600;
+  font-size:1.9rem;
+  line-height:1.15;
+  color:var(--caneta);
+}
+
+@keyframes sobe{
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+.acertou{
+  font-family:"Caveat",cursive;
+  font-size:2.4rem;
+  color:var(--caneta);
+  margin-top:2rem;
+  opacity:0;
+  animation:sobe .8s ease forwards;
+}
+
+main{
+  position:relative;
+  z-index:1;
+}
+
+.capa{
+  min-height:100svh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:calc(4rem + var(--safe-t)) 1.6rem calc(3rem + var(--safe-b));
+  max-width:var(--larg);
+  margin:0 auto;
+}
+
+.capa h1{
+  font-family:"Caveat",cursive;
+  font-weight:400;
+  font-size:clamp(4.2rem,22vw,7rem);
+  line-height:.9;
+  margin:0;
+  letter-spacing:-.01em;
+}
+
+.capa .idade{
+  font-size:clamp(1.5rem,7vw,2rem);
+  font-weight:300;
+  letter-spacing:.22em;
+  margin:1.4rem 0 0;
+  padding-left:.2rem;
+}
+
+.capa .regua{
+  width:3.5rem;
+  height:1px;
+  background:var(--tinta);
+  margin:2.2rem 0 1.6rem;
+}
+
+.capa .sub{
+  margin:0;
+  max-width:24rem;
+  color:var(--cinza);
+  font-style:italic;
+  font-size:1.1rem;
+}
+
+.desce{
+  margin-top:3.5rem;
+  font-size:.95rem;
+  color:var(--cinza);
+  display:flex;
+  align-items:center;
+  gap:.7rem;
+}
+
+.desce span{
+  width:1px;
+  height:2.2rem;
+  background:var(--linha);
+  animation:respira 3.2s ease-in-out infinite;
+  transform-origin:top;
+}
+
+@keyframes respira{
+  0%,100%{transform:scaleY(.4);opacity:.6}
+  50%{transform:scaleY(1);opacity:1}
+}
+
+section{
+  padding:0 1.6rem;
+}
+
+.bloco{
+  max-width:var(--larg);
+  margin:0 auto;
+}
+
+.carta{
+  padding-top:2rem;
+  padding-bottom:5rem;
+}
+
+.carta p{
+  margin:0 0 1.4rem;
+}
+
+.carta p:first-of-type{
+  font-size:1.2rem;
+}
+
+.nota{
+  font-family:"Caveat",cursive;
+  color:var(--caneta);
+  font-size:1.7rem;
+  line-height:1.25;
+  transform:rotate(-1.4deg);
+  margin:2.6rem 0;
+  max-width:19rem;
+}
+
+.nota em{
+  display:block;
+  font-size:1.25rem;
+  opacity:.75;
+  font-style:italic;
+}
+
+.abre-secao{
+  max-width:var(--larg);
+  margin:0 auto;
+  padding:4.5rem 0 2.5rem;
+}
+
+.abre-secao h2{
+  font-weight:300;
+  font-size:1.6rem;
+  margin:0 0 .6rem;
+  line-height:1.25;
+}
+
+.abre-secao p{
+  margin:0;
+  color:var(--cinza);
+  font-style:italic;
+}
+
+.memorias{
+  padding-bottom:2rem;
+}
+
+.mem{
+  max-width:var(--larg);
+  margin:0 auto;
+  padding:2.6rem 0;
+  border-top:1px solid var(--linha);
+}
+
+.mem:first-child{
+  border-top:0;
+}
+
+.mem-topo{
+  display:flex;
+  align-items:baseline;
+  gap:.75rem;
+  margin-bottom:.5rem;
+}
+
+.mem-num{
+  font-family:"Caveat",cursive;
+  font-size:1.7rem;
+  color:var(--caneta);
+  line-height:1;
+}
+
+.mem h3{
+  font-weight:400;
+  font-size:1.55rem;
+  line-height:1.2;
+  margin:0 0 .9rem;
+}
+
+.mem p{
+  margin:0 0 1.1rem;
+}
+
+.mem p:last-child{
+  margin-bottom:0;
+}
+
+.mem--sussurro h3{
+  font-size:1.9rem;
+}
+
+.mem--sussurro{
+  padding:3.4rem 0;
+}
+
+.mem .rabisco{
+  font-family:"Caveat",cursive;
+  font-size:1.45rem;
+  line-height:1.3;
+  color:var(--caneta);
+  transform:rotate(-.8deg);
+  margin-top:1.1rem;
+  max-width:20rem;
+}
+
+.media{
+  margin:1.2rem 0 1.3rem;
+  border-radius:2px;
+  overflow:hidden;
+  background:var(--papel-fundo);
+  box-shadow:var(--sombra);
+}
+
+.media img{
+  width:100%;
+  height:auto;
+}
+
+.vazio{
+  aspect-ratio:4/5;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--linha);
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0 14px,
+      rgba(138,133,123,.07) 14px 15px
+    );
+}
+
+.vazio--largo{
+  aspect-ratio:3/2;
+}
+
+.vazio span{
+  font-family:"Caveat",cursive;
+  font-size:1.3rem;
+  color:var(--cinza);
+}
+
+.legenda{
+  font-size:.92rem;
+  font-style:italic;
+  color:var(--cinza);
+  margin:-.5rem 0 1.1rem;
+}
+
+.final{
+  min-height:88svh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:6rem 1.6rem calc(7rem + var(--safe-b));
+  max-width:var(--larg);
+  margin:0 auto;
+}
+
+.final .trinta{
+  font-size:clamp(5rem,30vw,9rem);
+  font-weight:300;
+  line-height:.85;
+  margin:0;
+  letter-spacing:-.04em;
+}
+
+.final .regua{
+  width:3.5rem;
+  height:1px;
+  background:var(--tinta);
+  margin:2rem 0;
+}
+
+.final p{
+  margin:0 0 1.1rem;
+  max-width:23rem;
+}
+
+.final .assina{
+  font-family:"Caveat",cursive;
+  font-size:1.8rem;
+  color:var(--caneta);
+  margin-top:1.4rem;
+}
+
+#som{
+  position:fixed;
+  z-index:30;
+  left:1.1rem;
+  bottom:calc(1.1rem + var(--safe-b));
+  width:2.9rem;
+  height:2.9rem;
+  border-radius:50%;
+  border:1px solid var(--linha);
+  background:rgba(245,242,236,.88);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  gap:2px;
+  cursor:pointer;
+  padding:0;
+  box-shadow:0 8px 20px -14px rgba(23,22,20,.6);
+}
+
+#som.visivel{
+  display:flex;
+}
+
+#som i{
+  display:block;
+  width:2px;
+  height:9px;
+  background:var(--cinza);
+  border-radius:2px;
+  transform-origin:center;
+}
+
+#som.tocando i{
+  background:var(--caneta);
+  animation:barra 1.1s ease-in-out infinite;
+}
+
+#som.tocando i:nth-child(2){
+  animation-delay:.18s;
+}
+
+#som.tocando i:nth-child(3){
+  animation-delay:.36s;
+}
+
+@keyframes barra{
+  0%,100%{transform:scaleY(.45)}
+  50%{transform:scaleY(1.25)}
+}
+
+#som-aviso{
+  position:fixed;
+  z-index:30;
+  left:4.5rem;
+  bottom:calc(1.55rem + var(--safe-b));
+  font-family:"Caveat",cursive;
+  font-size:1.2rem;
+  color:var(--cinza);
+  opacity:0;
+  transition:opacity .6s ease;
+  pointer-events:none;
+}
+
+#som-aviso.visivel{
+  opacity:1;
+}
+
+.surge{
+  opacity:0;
+  transform:translateY(14px);
+}
+
+.surge.dentro{
+  opacity:1;
+  transform:none;
+  transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.3,1);
+}
+
+@media (prefers-reduced-motion:reduce){
+  .surge,
+  .surge.dentro{
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
+
+  .desce span,
+  #som.tocando i{
+    animation:none;
+  }
+}
+
+@media (min-width:900px){
+  body{
+    font-size:1.125rem;
+  }
+
+  :root{
+    --larg:600px;
+  }
+
+  .capa,
+  .final{
+    padding-left:0;
+    padding-right:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="portao">
+  <div class="portao-caixa">
+    <div class="portao-cabecalho">
+      <p>Antes de entrar, uma pergunta.</p>
+      <h1 class="portao-pergunta">Qual é a senha?</h1>
+    </div>
+
+    <form class="campo" id="form-senha" autocomplete="off">
+      <input
+        id="senha"
+        type="text"
+        inputmode="text"
+        placeholder="…"
+        aria-label="Senha"
+        autocapitalize="off"
+        autocorrect="off"
+        spellcheck="false"
+      >
+      <button type="submit">entrar</button>
+    </form>
+
+    <div id="dicas"></div>
+  </div>
+</div>
+
+<main id="site" hidden>
+
+  <header class="capa">
+    <h1>Meu bem</h1>
+    <p class="idade">30 anos</p>
+    <div class="regua"></div>
+    <p class="sub">Uma pequena coleção das coisas que eu lembro quando penso em você.</p>
+    <div class="desce"><span></span> deslize</div>
+  </header>
+
+  <section class="carta">
+    <div class="bloco">
+
+      <p class="surge">E então chegaram os 30 anos do amor da minha vida.</p>
+
+      <p class="surge">É, meu bem. Os 20 ficaram para trás. E, com eles, levaram uma grande fase da sua vida. E eu tive muita sorte de encontrar você bem no finalzinho dela, só pra virarmos tudo de cabeça pra baixo de uma vez.</p>
+
+      <p class="surge">Sinceramente, eu não consigo nem imaginar tudo que você passou até chegar aqui. Quantas incertezas, risadas, estresses, calmarias, amores e ódios ficaram pelo caminho. Quantas pessoas você quis esganar e não esganou, quantos corpos você já enfiou naquela mala enorme em cima do guarda-roupa e desovou por aí 🧐.</p>
+
+      <p class="surge">Todos os momentos, por mais positivos ou negativos que tenham sido, moldaram a mulher incrível que você é hoje. Não canso de lembrar da felicidade da Amandinha quando começou a tocar Welcome to the Jungle aquele dia. Ou do sorriso quando te pedi em namoro no meu quarto. De você extremamente sociável aquele dia no St. John's. Da paz que senti naquele nosso primeiro cochilo em família no domingo à tarde aqui em São Paulo. Daquela lista de destinos que você anotou para nós fazermos como um casal antes de sabermos que teríamos a Godinha. Da também fui emo, seguida de um BK que não deu nem pra tapar o buraco do dente. Do pote de Danone com um cheiro peculiar. Dos domingos BEEEEEM aproveitados em casa. Do nosso escondidinho na casa do véi. De Bonnie e Cate. Do hambúrguer artesanal acompanhado de cookies. Daquela cerveja que só a gente gosta e que eu tô louco pra poder encher a cara com você de novo. Das viagens de van, sabendo que, por mais cansativas que fossem, me deixavam animado porque eu sabia que iria te ver de novo. Das minhas pausas pro café no trabalho, onde tudo que eu fazia era sair correndo pra falar com você. Dos açaís de domingo com gostinho de despedida e choro embargado.</p>
+
+      <p class="surge">Do rolê no Cannil, junto com bebidas gliteres e aquela sensação de aventura. Do meu amor de carnaval, que eu só não sabia que seria o amor da minha vida.</p>
+
+      <p class="nota surge">A parte mais legal dos seus 30 anos<em>(a parte que eu estou)</em></p>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="abre-secao surge">
+      <h2>Eu não conheço tudo que aconteceu antes de mim.</h2>
+      <p>Mas conheço estas aqui. Em nenhuma ordem específica.</p>
+    </div>
+  </section>
+
+  <section class="memorias">
+
+    <article class="mem surge">
+      <div class="mem-topo">
+        <span class="mem-num">01</span>
+      </div>
+
+      <h3>Welcome to the Jungle</h3>
+
+      <p>Não canso de lembrar da felicidade da Amandinha quando começou a tocar Welcome to the Jungle aquele dia.</p>
+
+      <div class="media">
+        <img src="fotos/foto-01.jpg" alt="" loading="lazy">
+        <div class="vazio"><span>foto aqui</span></div>
+      </div>
+
+      <p class="rabisco">a mulher virou outra pessoa em dois segundos</p>
+    </article>
+
+    <article class="mem mem--sussurro surge">
+      <div class="mem-topo">
+        <span class="mem-num">02</span>
+      </div>
+
+      <h3>O sorriso no meu quarto</h3>
+
+      <p>Ou do sorriso quando te pedi em namoro no meu quarto.</p>
+    </article>
+
+    <article class="mem surge">
+      <div class="mem-topo">
+        <span class="mem-num">03</span>
+      </div>
+
+      <h3>St. John's</h3>
+
+      <p>De você extremamente sociável aquele dia no St. John's.</p>
+
+      <div class="media">
+        <img src="fotos/foto-03.jpg" alt="" loading="lazy">
+        <div class="vazio vazio--largo"><span>foto aqui</span></div>
+      </div>
+    </article>
+
+    <article class="mem surge">
+      <div class="mem-topo">
+        <span class="mem-num">04</span>
+      </div>
+
+      <h3>Nosso primeiro cochilo em família</h3>
+
+      <p>Da paz que senti naquele nosso primeiro cochilo em família no domingo à tarde aqui em São Paulo.</p>
+
+      <div class="media">
+        <img src="fotos/foto-04.jpg" alt="" loading="lazy">
+        <div class="vazio"><span>foto aqui</span></div>
+      </div>
+    </article>
+
+    <article class="mem mem--sussurro surge">
+      <div class="mem-topo">
+        <span class="mem-num">05</span>
+      </div>
+
+      <h3>A lista de destinos</h3>
+
+      <p>Daquela lista de destinos que você anotou para nós fazermos como um casal antes de sabermos que teríamos a Godinha.</p>
+
+      <p class="rabisco">a lista continua de pé, só mudou o tamanho da mala</p>
+    </article>
+
+    <article class="mem surge">
+      <div class="mem-topo">
+        <span class="mem-num">06</span>
+      </div>
+
+      <h3>Bacate Day</h3>
+
+      <div class="media">
+        <img src="fotos/foto-06.jpg" alt="" loading="lazy">
+        <div class="vazio vazio--largo">
+          <span>foto aqui</span>
+        </div>
+      </div>
+
+      <p>Da também fui emo, seguida de um BK que não deu nem pra tapar o buraco do dente.</p>
+    </article>
+
+    <article class="mem surge">
+      <div class="mem-topo">
+        <span class="mem-num">07</span>
+      </div>
+
+      <h3>Também fui emo</h3>
+
+      <p>Da também fui emo, seguida de um BK que não deu nem pra tapar o buraco do dente.</p>
+
+      <div class="media">
+        <img src="fotos/foto-07.jpg" alt="" loading="lazy">
+        <div class="vazio"><span>foto aqui</span></div>
+      </div>
+    </article>
+
+    <article class="mem mem--sussurro surge">
+      <div class="mem-topo">
+        <span class="mem-num">08</span>
+      </div>
+
+      <h3>O pote de Danone</h3>
+
+      <p>Do pote de Danone com um cheiro peculiar.</p>
+    </article>
+
+    <article class="mem surge">
+      <div class="mem-topo">
+        <span class="mem-num">09</span>
+      </div>
+
+      <h3>Domingos BEEEEEM aproveitados</h3>
+
+      <p>Dos domingos BEEEEEM aproveitados em casa.</p>
+
+      <div class="media">
+        <img src="fotos/foto-09.jpg" alt="" loading="lazy">
+        <div class="vazio vazio--largo"><span>foto aqui</span></div>
+      </div>
+    </article>
+
+    <article class="mem mem--sussurro surge">
+      <div class="mem-topo">
+        <span class="mem-num">10</span>
+      </div>
+
+      <h3>O escondidinho na casa do véi</h3>
+
+      <p>Do nosso escondidinho na casa do véi.</p>
+    </article>
+
+    <article class="mem surge">
+      <div class="mem-topo">
+        <span class="mem-num">11</span>
+      </div>
+
+      <h3>Bonnie e Cate</h3>
+
+      <p>De Bonnie e Cate.</p>
+
+      <div class="media">
+        <img src="fotos/foto-11.jpg" alt="" loading="lazy">
+        <div class="vazio"><span>foto aqui</span></div>
+      </div>
+
+      <p class="rabisco">as duas mandando mais em você do que eu</p>
+    </article>
+
+    <article class="mem mem--sussurro surge">
+      <div class="mem-topo">
+        <span class="mem-num">12</span>
+      </div>
+
+      <h3>Hambúrguer artesanal acompanhado de cookies</h3>
+
+      <p>Do hambúrguer artesanal acompanhado de cookies.</p>
+    </article>
+
+    <article class="mem mem--sussurro surge">
+      <div class="mem-topo">
+        <span class="mem-num">13</span>
+      </div>
+
+      <h3>Aquela cerveja que só a gente gosta</h3>
+
+      <p>Daquela cerveja que só a gente gosta e que eu tô louco pra poder encher a cara com você de novo.</p>
+    </article>
+
+    <article class="mem surge">
+      <div class="mem-topo">
+        <span class="mem-num">14</span>
+      </div>
+
+      <h3>Viagens de van</h3>
+
+      <p>Das viagens de van, sabendo que, por mais cansativas que fossem, me deixavam animado porque eu sabia que iria te ver de novo.</p>
+
+      <div class="media">
+        <img src="fotos/foto-14.jpg" alt="" loading="lazy">
+        <div class="vazio vazio--largo"><span>foto aqui</span></div>
+      </div>
+    </article>
+
+    <article class="mem mem--sussurro surge">
+      <div class="mem-topo">
+        <span class="mem-num">15</span>
+      </div>
+
+      <h3>As minhas pausas pro café no trabalho</h3>
+
+      <p>Das minhas pausas pro café no trabalho, onde tudo que eu fazia era sair correndo pra falar com você.</p>
+    </article>
+
+    <article class="mem surge">
+      <div class="mem-topo">
+        <span class="mem-num">16</span>
+      </div>
+
+      <h3>Açaís de domingo</h3>
+
+      <p>Dos açaís de domingo com gostinho de despedida e choro embargado.</p>
+
+      <div class="media">
+        <img src="fotos/foto-16.jpg" alt="" loading="lazy">
+        <div class="vazio"><span>foto aqui</span></div>
+      </div>
+    </article>
+
+    <article class="mem surge">
+      <div class="mem-topo">
+        <span class="mem-num">17</span>
+      </div>
+
+      <h3>O rolê no Cannil</h3>
+
+      <p>Do rolê no Cannil, junto com bebidas gliteres e aquela sensação de aventura.</p>
+
+      <div class="media">
+        <img src="fotos/foto-17.jpg" alt="" loading="lazy">
+        <div class="vazio vazio--largo"><span>foto aqui</span></div>
+      </div>
+    </article>
+
+    <article class="mem mem--sussurro surge">
+      <div class="mem-topo">
+        <span class="mem-num">18</span>
+      </div>
+
+      <h3>Meu amor de carnaval</h3>
+
+      <p>Do meu amor de carnaval, que eu só não sabia que seria o amor da minha vida.</p>
+    </article>
+
+  </section>
+
+  <section>
+    <div class="final">
+      <p class="trinta surge">30.</p>
+
+      <div class="regua"></div>
+
+      <p class="surge">Isso aqui é só um pedaço. Tem muita coisa sua que aconteceu antes de mim e eu nem imagino.</p>
+
+      <p class="surge">Mas as que eu vi, eu guardei. E ainda tem uma vida inteira sua pela frente.</p>
+
+      <p class="assina surge">Feliz 30, meu bem.</p>
+    </div>
+  </section>
+
+</main>
+
+<button id="som" aria-label="Tocar música" aria-pressed="false">
+  <i></i>
+  <i></i>
+  <i></i>
+</button>
+
+<div id="som-aviso">toca aqui</div>
+
+<script>
+const SENHAS_ACEITAS = [
+  "3a1b80321eb8c581e987187bd14a7f7894d8354b23516403ca8d71fde92c2ccf",
+  "a2d8fac4af9aba3f662ddf25a7c82bec67d2d0ce31eb7fc28c7b02cff63a5d39",
+  "11b0147cac181f433e7f220d2b0cead50d61cf065a82b45b768428419d83433e",
+  "7d6f4d3a4e55b80049b3e754f6cca3f3227910992a993490f4009c8fab1414fb"
+];
+
+const DICAS = [
+  {
+    erro:"Não seria tão obvio assim também, né?",
+    dica:"o dia de chegada da nossa criança"
+  },
+  {
+    erro:"NÃO ESSA, a outra criança.",
+    dica:"bacate-day 🥑"
+  },
+  {
+    erro:"Não preparei nada, não achei que fossemos chegar até aqui…",
+    dica:"nosso aniversário"
+  },
+  {
+    erro:"Ok. Você venceu.",
+    dica:"04/04/25. Pronto. Falei."
+  }
+];
+
+const portao=document.getElementById("portao");
+const site=document.getElementById("site");
+const form=document.getElementById("form-senha");
+const campo=document.getElementById("senha");
+const caixaDicas=document.getElementById("dicas");
+
+let erros=0;
+
+function limpar(v){
+  return (v || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .replace(/[^a-z0-9]/g,"");
+}
+
+async function hashDaSenha(texto){
+  const dados=new TextEncoder().encode(limpar(texto));
+  const buf=await crypto.subtle.digest("SHA-256",dados);
+
+  return Array.from(new Uint8Array(buf))
+    .map(function(b){
+      return b.toString(16).padStart(2,"0");
+    })
+    .join("");
+}
+
+window.hashDaSenha=hashDaSenha;
+
+form.addEventListener("submit",async function(e){
+  e.preventDefault();
+
+  if(!limpar(campo.value)) return;
+
+  const tentativa=await hashDaSenha(campo.value);
+
+  if(SENHAS_ACEITAS.indexOf(tentativa)!==-1){
+    abrir();
+    return;
+  }
+
+  const item=DICAS[Math.min(erros,DICAS.length-1)];
+  erros++;
+
+  const el=document.createElement("div");
+  el.className="dica";
+
+  el.innerHTML=
+    '<p class="erro">'+item.erro+'</p>'+
+    '<p><span class="rotulo-dica">dica:</span><strong>'+item.dica+'</strong></p>';
+
+  caixaDicas.appendChild(el);
+
+  campo.value="";
+  campo.focus();
+
+  form.classList.remove("errou");
+  void form.offsetWidth;
+  form.classList.add("errou");
+
+  el.scrollIntoView({
+    behavior:"smooth",
+    block:"nearest"
+  });
+});
+
+function abrir(){
+  form.style.display="none";
+
+  caixaDicas.innerHTML=
+    '<p class="acertou">É você. Pode entrar.</p>';
+
+  try{
+    sessionStorage.setItem("meubem","1");
+  }catch(e){}
+
+  setTimeout(function(){
+    site.hidden=false;
+    portao.classList.add("aberto");
+
+    document.getElementById("som").classList.add("visivel");
+
+    iniciarAnimacoes();
+
+    setTimeout(function(){
+      portao.remove();
+    },1000);
+  },1500);
+}
+
+try{
+  if(sessionStorage.getItem("meubem")==="1"){
+    site.hidden=false;
+    portao.remove();
+
+    document.getElementById("som").classList.add("visivel");
+  }
+}catch(e){}
+
+function iniciarAnimacoes(){
+  const alvos=document.querySelectorAll(".surge");
+
+  if(!("IntersectionObserver" in window)){
+    alvos.forEach(function(el){
+      el.classList.add("dentro");
+    });
+
+    return;
+  }
+
+  const obs=new IntersectionObserver(function(entradas){
+    entradas.forEach(function(en){
+      if(en.isIntersecting){
+        en.target.classList.add("dentro");
+        obs.unobserve(en.target);
+      }
+    });
+  },{
+    rootMargin:"0px 0px -12% 0px",
+    threshold:0.05
+  });
+
+  alvos.forEach(function(el){
+    obs.observe(el);
+  });
+}
+
+if(!site.hidden){
+  iniciarAnimacoes();
+}
+
+document.querySelectorAll(".media").forEach(function(m){
+  if(m.querySelector("img")){
+    const v=m.querySelector(".vazio");
+
+    if(v){
+      v.remove();
+    }
+  }
+});
+
+const PLAYLIST=[
+  "music/honey-you.mp3",
+  "music/caramel.mp3"
+];
+
+const botaoSom=document.getElementById("som");
+const aviso=document.getElementById("som-aviso");
+
+let audio=null;
+let faixa=0;
+
+function prepararAudio(){
+  if(audio) return;
+
+  audio=new Audio();
+  audio.preload="none";
+  audio.volume=0.65;
+  audio.src=PLAYLIST[faixa];
+
+  audio.addEventListener("ended",function(){
+    faixa=(faixa+1)%PLAYLIST.length;
+    audio.src=PLAYLIST[faixa];
+
+    audio.play().catch(function(){});
+  });
+
+  audio.addEventListener("error",function(){
+    if(PLAYLIST.length<2){
+      return pausar();
+    }
+
+    faixa=(faixa+1)%PLAYLIST.length;
+    audio.src=PLAYLIST[faixa];
+
+    audio.play().catch(function(){
+      pausar();
+    });
+  });
+}
+
+function tocar(){
+  prepararAudio();
+
+  audio.play().then(function(){
+    botaoSom.classList.add("tocando");
+    botaoSom.setAttribute("aria-pressed","true");
+    botaoSom.setAttribute("aria-label","Pausar música");
+
+    aviso.classList.remove("visivel");
+  }).catch(function(){
+    pausar();
+  });
+}
+
+function pausar(){
+  if(audio){
+    audio.pause();
+  }
+
+  botaoSom.classList.remove("tocando");
+  botaoSom.setAttribute("aria-pressed","false");
+  botaoSom.setAttribute("aria-label","Tocar música");
+}
+
+botaoSom.addEventListener("click",function(){
+  if(audio && !audio.paused){
+    pausar();
+  }else{
+    tocar();
+  }
+});
+
+setTimeout(function(){
+  if(!botaoSom.classList.contains("visivel")) return;
+  if(audio && !audio.paused) return;
+
+  aviso.classList.add("visivel");
+
+  setTimeout(function(){
+    aviso.classList.remove("visivel");
+  },4500);
+},6000);
+</script>
+
+</body>
+</html>
