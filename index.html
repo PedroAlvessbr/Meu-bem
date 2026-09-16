@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -612,6 +611,124 @@ section{
 
 
 /* =========================
+   FOTO ESPECIAL DA FAMÍLIA
+   ========================= */
+
+.familia{
+  max-width:var(--larg);
+
+  margin:0 auto;
+
+  padding:
+    6.5rem 0
+    6rem;
+
+  border-top:1px solid var(--linha);
+}
+
+.familia-conteudo{
+  position:relative;
+}
+
+.familia-texto{
+  margin-bottom:2rem;
+}
+
+.familia-texto .pequeno{
+  display:block;
+
+  margin:0 0 .35rem;
+
+  color:var(--cinza);
+
+  font-style:italic;
+
+  font-size:1rem;
+}
+
+.familia-texto h2{
+  margin:0;
+
+  font-family:"Caveat",cursive;
+
+  font-size:2.7rem;
+
+  font-weight:400;
+
+  line-height:1;
+
+  color:var(--caneta);
+
+  transform:rotate(-1deg);
+}
+
+.familia-texto p{
+  margin:1.2rem 0 0;
+
+  max-width:27rem;
+}
+
+.familia-foto{
+  position:relative;
+
+  width:100%;
+
+  margin:0;
+
+  padding:.45rem;
+
+  background:#fff;
+
+  box-shadow:
+    0 1px 0 rgba(23,22,20,.05),
+    0 24px 55px -30px rgba(23,22,20,.55);
+
+  transform:rotate(.45deg);
+}
+
+.familia-foto::before{
+  content:"";
+
+  position:absolute;
+
+  inset:.45rem;
+
+  border:1px solid rgba(23,22,20,.08);
+
+  pointer-events:none;
+
+  z-index:2;
+}
+
+.familia-foto img{
+  display:block;
+
+  width:100%;
+  height:auto;
+
+  max-width:100%;
+
+  object-fit:contain;
+}
+
+.familia-legenda{
+  margin:1.8rem 0 0;
+
+  max-width:24rem;
+
+  font-family:"Caveat",cursive;
+
+  font-size:1.65rem;
+
+  line-height:1.2;
+
+  color:var(--caneta);
+
+  transform:rotate(-1.2deg);
+}
+
+
+/* =========================
    FINAL — INTRODUÇÃO DO VÍDEO
    ========================= */
 
@@ -666,12 +783,6 @@ section{
   position:relative;
 
   width:100%;
-
-  /*
-    Altura fixa.
-    O vídeo nunca define o tamanho
-    do restante do layout.
-  */
 
   height:280px;
   min-height:280px;
@@ -982,6 +1093,15 @@ section{
     max-height:360px;
 
     margin-bottom:6.5rem;
+  }
+
+  .familia{
+    padding-top:8rem;
+    padding-bottom:8rem;
+  }
+
+  .familia-texto h2{
+    font-size:3.2rem;
   }
 
 }
@@ -1763,6 +1883,51 @@ section{
 
     </article>
 
+
+  </section>
+
+
+  <!-- =========================
+       NOSSA FAMÍLIA
+       ========================= -->
+
+  <section class="familia">
+
+    <div class="familia-conteudo surge">
+
+      <div class="familia-texto">
+
+        <span class="pequeno">
+          E no meio de tudo isso...
+        </span>
+
+        <h2>
+          nós três.
+        </h2>
+
+        <p>
+          Porque, de todas as coisas que aconteceram até aqui, essa talvez seja a mais importante de todas.
+        </p>
+
+      </div>
+
+
+      <div class="familia-foto">
+
+        <img
+          src="Fotos/familia.jpg"
+          alt="Nós três juntos"
+          loading="lazy"
+        >
+
+      </div>
+
+
+      <p class="familia-legenda">
+        A vida que a gente começou a construir juntos.
+      </p>
+
+    </div>
 
   </section>
 
