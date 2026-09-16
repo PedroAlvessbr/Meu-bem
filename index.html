@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
-<meta name="referrer" content="no-referrer">
-
-<title>Meu bem</title>
-<meta name="theme-color" content="#F5F2EC">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<meta name="referrer" content="no-referrer"><title>Meu bem</title>
+<meta name="theme-color" content="#F5F2EC"><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
-
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet"><style>
 :root{
   --papel:#F5F2EC;
   --papel-fundo:#EDE8DE;
@@ -61,7 +52,8 @@ body::before{
     radial-gradient(100% 50% at 50% 100%,rgba(23,22,20,.05),transparent 60%);
 }
 
-img{
+img,
+video{
   max-width:100%;
   display:block;
 }
@@ -75,6 +67,10 @@ img{
   outline-offset:3px;
   border-radius:2px;
 }
+
+/* =========================
+   PORTÃO / SENHA
+   ========================= */
 
 #portao{
   position:fixed;
@@ -232,6 +228,10 @@ img{
   animation:sobe .8s ease forwards;
 }
 
+/* =========================
+   SITE
+   ========================= */
+
 main{
   position:relative;
   z-index:1;
@@ -340,6 +340,10 @@ section{
   font-style:italic;
 }
 
+/* =========================
+   SEÇÕES
+   ========================= */
+
 .abre-secao{
   max-width:var(--larg);
   margin:0 auto;
@@ -364,10 +368,13 @@ section{
 }
 
 .mem{
+  position:relative;
+  z-index:0;
   max-width:var(--larg);
   margin:0 auto;
   padding:2.6rem 0;
   border-top:1px solid var(--linha);
+  overflow:visible;
 }
 
 .mem:first-child{
@@ -421,20 +428,35 @@ section{
   max-width:20rem;
 }
 
+/* =========================
+   FOTOS
+   ========================= */
+
 .media{
+  position:relative;
+  isolation:isolate;
+  width:100%;
   margin:1.2rem 0 1.3rem;
   border-radius:2px;
   overflow:hidden;
   background:var(--papel-fundo);
   box-shadow:var(--sombra);
+  z-index:0;
 }
 
 .media img{
+  position:relative;
+  z-index:1;
   width:100%;
   height:auto;
+  max-width:100%;
+  display:block;
+  object-fit:contain;
 }
 
 .vazio{
+  position:relative;
+  width:100%;
   aspect-ratio:4/5;
   display:flex;
   align-items:center;
@@ -465,19 +487,35 @@ section{
   margin:-.5rem 0 1.1rem;
 }
 
+/* =========================
+   VÍDEO FINAL
+   ========================= */
+
 .video-final{
+  position:relative;
+  isolation:isolate;
+  width:100%;
   margin-top:2.5rem;
   border-radius:2px;
   overflow:hidden;
   background:var(--papel-fundo);
   box-shadow:var(--sombra);
+  z-index:0;
 }
 
 .video-final video{
+  position:relative;
+  z-index:1;
+  display:block;
   width:100%;
   height:auto;
-  display:block;
+  max-width:100%;
+  object-fit:contain;
 }
+
+/* =========================
+   FINAL
+   ========================= */
 
 .final{
   min-height:88svh;
@@ -515,6 +553,10 @@ section{
   color:var(--caneta);
   margin-top:1.4rem;
 }
+
+/* =========================
+   BOTÃO DE SOM
+   ========================= */
 
 #som{
   position:fixed;
@@ -585,6 +627,10 @@ section{
   opacity:1;
 }
 
+/* =========================
+   ANIMAÇÕES
+   ========================= */
+
 .surge{
   opacity:0;
   transform:translateY(14px);
@@ -610,6 +656,10 @@ section{
   }
 }
 
+/* =========================
+   DESKTOP
+   ========================= */
+
 @media (min-width:900px){
   body{
     font-size:1.125rem;
@@ -625,343 +675,309 @@ section{
     padding-right:0;
   }
 }
-</style>
-</head>
-
-<body>
-
-<div id="portao">
+</style></head><body><div id="portao">
   <div class="portao-caixa">
     <div class="portao-cabecalho">
       <p>Antes de entrar, uma pergunta.</p>
       <h1 class="portao-pergunta">Qual é a senha?</h1>
-    </div>
+    </div><form class="campo" id="form-senha" autocomplete="off">
+  <input
+    id="senha"
+    type="text"
+    inputmode="text"
+    placeholder="…"
+    aria-label="Senha"
+    autocapitalize="off"
+    autocorrect="off"
+    spellcheck="false"
+  >
+  <button type="submit">entrar</button>
+</form>
 
-    <form class="campo" id="form-senha" autocomplete="off">
-      <input
-        id="senha"
-        type="text"
-        inputmode="text"
-        placeholder="…"
-        aria-label="Senha"
-        autocapitalize="off"
-        autocorrect="off"
-        spellcheck="false"
-      >
-      <button type="submit">entrar</button>
-    </form>
+<div id="dicas"></div>
 
-    <div id="dicas"></div>
   </div>
-</div>
-
-<main id="site" hidden>
-
-  <header class="capa">
+</div><main id="site" hidden>  <header class="capa">
     <h1>Meu bem</h1>
     <p class="idade">30 anos</p>
     <div class="regua"></div>
     <p class="sub">Uma pequena coleção das coisas que eu lembro quando penso em você.</p>
     <div class="desce"><span></span> deslize</div>
-  </header>
+  </header>  <section class="carta">
+    <div class="bloco">  <p class="surge">E então chegaram os 30 anos do amor da minha vida.</p>
 
-  <section class="carta">
-    <div class="bloco">
+  <p class="surge">Pois é. Os 20 ficaram para trás. E, com eles, levaram uma grande fase da sua vida. E eu tive muita sorte de encontrar você bem no finalzinho dela, só pra virarmos tudo de cabeça pra baixo de uma vez.</p>
 
-      <p class="surge">E então chegaram os 30 anos do amor da minha vida.</p>
+  <p class="surge">Sinceramente, eu não consigo nem imaginar tudo que você passou até chegar aqui. Quantas incertezas, risadas, estresses, calmarias, alegrias e tristezas ficaram pelo caminho. Quantas pessoas você quis esganar e não esganou, quantos corpos você já enfiou naquela mala enorme em cima do guarda-roupa e desovou por aí 🧐.</p>
 
-      <p class="surge">Pois é. Os 20 ficaram para trás. E, com eles, levaram uma grande fase da sua vida. E eu tive muita sorte de encontrar você bem no finalzinho dela, só pra virarmos tudo de cabeça pra baixo de uma vez.</p>
+  <p class="surge">Todos os momentos, por mais positivos ou negativos que tenham sido, moldaram a mulher incrível que você é hoje. Não canso de lembrar da felicidade da Amandinha quando começou a tocar Welcome to the Jungle aquele dia. Ou do sorriso quando te pedi em namoro no meu quarto. De você extremamente sociável aquele dia no St. John's. Da paz que senti naquele nosso primeiro cochilo em família no domingo à tarde aqui em São Paulo. Daquela lista de destinos que você anotou para nós fazermos como um casal antes de sabermos que teríamos a Godinha. Da também fui emo, seguida de um BK que não deu nem pra tapar o buraco do dente. Do pote de Danone com um cheiro peculiar. Dos domingos BEEEEEM aproveitados em casa. Do nosso escondidinho na casa do véi. De Bonnie e Cate. Do hambúrguer artesanal acompanhado de cookies. Daquela cerveja que só a gente gosta e que eu tô louco pra poder encher a cara com você de novo. Das viagens de van, sabendo que, por mais cansativas que fossem, me deixavam animado porque eu sabia que iria te ver de novo. Das minhas pausas pro café no trabalho, onde tudo que eu fazia era sair correndo pra falar com você. Dos açaís de domingo com gostinho de despedida e choro embargado.</p>
 
-      <p class="surge">Sinceramente, eu não consigo nem imaginar tudo que você passou até chegar aqui. Quantas incertezas, risadas, estresses, calmarias, alegrias e tristezas ficaram pelo caminho. Quantas pessoas você quis esganar e não esganou, quantos corpos você já enfiou naquela mala enorme em cima do guarda-roupa e desovou por aí 🧐.</p>
+  <p class="surge">Do rolê no Cannil, junto com bebidas gliteres e aquela sensação de aventura. Do meu amor de carnaval, que eu só não sabia que seria o amor da minha vida.</p>
 
-      <p class="surge">Todos os momentos, por mais positivos ou negativos que tenham sido, moldaram a mulher incrível que você é hoje. Não canso de lembrar da felicidade da Amandinha quando começou a tocar Welcome to the Jungle aquele dia. Ou do sorriso quando te pedi em namoro no meu quarto. De você extremamente sociável aquele dia no St. John's. Da paz que senti naquele nosso primeiro cochilo em família no domingo à tarde aqui em São Paulo. Daquela lista de destinos que você anotou para nós fazermos como um casal antes de sabermos que teríamos a Godinha. Da também fui emo, seguida de um BK que não deu nem pra tapar o buraco do dente. Do pote de Danone com um cheiro peculiar. Dos domingos BEEEEEM aproveitados em casa. Do nosso escondidinho na casa do véi. De Bonnie e Cate. Do hambúrguer artesanal acompanhado de cookies. Daquela cerveja que só a gente gosta e que eu tô louco pra poder encher a cara com você de novo. Das viagens de van, sabendo que, por mais cansativas que fossem, me deixavam animado porque eu sabia que iria te ver de novo. Das minhas pausas pro café no trabalho, onde tudo que eu fazia era sair correndo pra falar com você. Dos açaís de domingo com gostinho de despedida e choro embargado.</p>
+  <p class="nota surge">A parte mais legal dos seus 30 anos<em>(a parte que eu estou)</em></p>
 
-      <p class="surge">Do rolê no Cannil, junto com bebidas gliteres e aquela sensação de aventura. Do meu amor de carnaval, que eu só não sabia que seria o amor da minha vida.</p>
+</div>
 
-      <p class="nota surge">A parte mais legal dos seus 30 anos<em>(a parte que eu estou)</em></p>
-
-    </div>
-  </section>
-
-  <section>
+  </section>  <section>
     <div class="abre-secao surge">
       <h2>Eu não conheço tudo que aconteceu antes de mim.</h2>
       <p>Mas conheço estas aqui. Em nenhuma ordem específica.</p>
     </div>
-  </section>
+  </section>  <section class="memorias"><article class="mem surge">
+  <div class="mem-topo">
+    <span class="mem-num">01</span>
+  </div>
 
-  <section class="memorias">
+  <h3>Welcome to the Jungle</h3>
 
-    <article class="mem surge">
-      <div class="mem-topo">
-        <span class="mem-num">01</span>
-      </div>
+  <p>Não canso de lembrar da felicidade da Amandinha quando começou a tocar Welcome to the Jungle aquele dia.</p>
 
-      <h3>Welcome to the Jungle</h3>
+  <div class="media">
+    <img src="fotos/foto-01.jpg" alt="" loading="lazy">
+  </div>
 
-      <p>Não canso de lembrar da felicidade da Amandinha quando começou a tocar Welcome to the Jungle aquele dia.</p>
+  <p class="rabisco">a mulher virou outra pessoa em dois segundos</p>
+</article>
 
-      <div class="media">
-        <img src="fotos/foto-01.jpg" alt="" loading="lazy">
-        <div class="vazio"><span>foto aqui</span></div>
-      </div>
+<article class="mem mem--sussurro surge">
+  <div class="mem-topo">
+    <span class="mem-num">02</span>
+  </div>
 
-      <p class="rabisco">a mulher virou outra pessoa em dois segundos</p>
-    </article>
+  <h3>O sorriso no meu quarto</h3>
 
-    <article class="mem mem--sussurro surge">
-      <div class="mem-topo">
-        <span class="mem-num">02</span>
-      </div>
+  <p>Ou do sorriso quando te pedi em namoro no meu quarto.</p>
+</article>
 
-      <h3>O sorriso no meu quarto</h3>
+<article class="mem surge">
+  <div class="mem-topo">
+    <span class="mem-num">03</span>
+  </div>
 
-      <p>Ou do sorriso quando te pedi em namoro no meu quarto.</p>
-    </article>
+  <h3>St. John's</h3>
 
-    <article class="mem surge">
-      <div class="mem-topo">
-        <span class="mem-num">03</span>
-      </div>
+  <p>De você extremamente sociável aquele dia no St. John's.</p>
 
-      <h3>St. John's</h3>
+  <div class="media">
+    <img src="fotos/foto-03.jpg" alt="" loading="lazy">
+  </div>
+</article>
 
-      <p>De você extremamente sociável aquele dia no St. John's.</p>
+<article class="mem surge">
+  <div class="mem-topo">
+    <span class="mem-num">04</span>
+  </div>
 
-      <div class="media">
-        <img src="fotos/foto-03.jpg" alt="" loading="lazy">
-        <div class="vazio vazio--largo"><span>foto aqui</span></div>
-      </div>
-    </article>
+  <h3>Nosso primeiro cochilo em família</h3>
 
-    <article class="mem surge">
-      <div class="mem-topo">
-        <span class="mem-num">04</span>
-      </div>
+  <p>Da paz que senti naquele nosso primeiro cochilo em família no domingo à tarde aqui em São Paulo.</p>
 
-      <h3>Nosso primeiro cochilo em família</h3>
+  <div class="media">
+    <img src="fotos/foto-04.jpg" alt="" loading="lazy">
+  </div>
+</article>
 
-      <p>Da paz que senti naquele nosso primeiro cochilo em família no domingo à tarde aqui em São Paulo.</p>
+<article class="mem mem--sussurro surge">
+  <div class="mem-topo">
+    <span class="mem-num">05</span>
+  </div>
 
-      <div class="media">
-        <img src="fotos/foto-04.jpg" alt="" loading="lazy">
-        <div class="vazio"><span>foto aqui</span></div>
-      </div>
-    </article>
+  <h3>A lista de destinos</h3>
 
-    <article class="mem mem--sussurro surge">
-      <div class="mem-topo">
-        <span class="mem-num">05</span>
-      </div>
+  <p>Daquela lista de destinos que você anotou para nós fazermos como um casal antes de sabermos que teríamos a Godinha.</p>
 
-      <h3>A lista de destinos</h3>
+  <p class="rabisco">a lista continua de pé, só mudou o tamanho da mala</p>
+</article>
 
-      <p>Daquela lista de destinos que você anotou para nós fazermos como um casal antes de sabermos que teríamos a Godinha.</p>
+<article class="mem surge">
+  <div class="mem-topo">
+    <span class="mem-num">06</span>
+  </div>
 
-      <p class="rabisco">a lista continua de pé, só mudou o tamanho da mala</p>
-    </article>
+  <h3>Bacate Day</h3>
 
-    <article class="mem surge">
-      <div class="mem-topo">
-        <span class="mem-num">06</span>
-      </div>
+  <div class="media">
+    <img src="fotos/foto-06.jpg" alt="" loading="lazy">
+  </div>
 
-      <h3>Bacate Day</h3>
+  <p>Da também fui emo, seguida de um BK que não deu nem pra tapar o buraco do dente.</p>
+</article>
 
-      <div class="media">
-        <img src="fotos/foto-06.jpg" alt="" loading="lazy">
-        <div class="vazio vazio--largo">
-          <span>foto aqui</span>
-        </div>
-      </div>
+<article class="mem surge">
+  <div class="mem-topo">
+    <span class="mem-num">07</span>
+  </div>
 
-      <p>Da também fui emo, seguida de um BK que não deu nem pra tapar o buraco do dente.</p>
-    </article>
+  <h3>Também fui emo</h3>
 
-    <article class="mem surge">
-      <div class="mem-topo">
-        <span class="mem-num">07</span>
-      </div>
+  <p>Da também fui emo, seguida de um BK que não deu nem pra tapar o buraco do dente.</p>
 
-      <h3>Também fui emo</h3>
+  <div class="media">
+    <img src="fotos/foto-07.jpg" alt="" loading="lazy">
+  </div>
+</article>
 
-      <p>Da também fui emo, seguida de um BK que não deu nem pra tapar o buraco do dente.</p>
+<article class="mem mem--sussurro surge">
+  <div class="mem-topo">
+    <span class="mem-num">08</span>
+  </div>
 
-      <div class="media">
-        <img src="fotos/foto-07.jpg" alt="" loading="lazy">
-        <div class="vazio"><span>foto aqui</span></div>
-      </div>
-    </article>
+  <h3>O pote de Danone</h3>
 
-    <article class="mem mem--sussurro surge">
-      <div class="mem-topo">
-        <span class="mem-num">08</span>
-      </div>
+  <p>Do pote de Danone com um cheiro peculiar.</p>
+</article>
 
-      <h3>O pote de Danone</h3>
+<article class="mem surge">
+  <div class="mem-topo">
+    <span class="mem-num">09</span>
+  </div>
 
-      <p>Do pote de Danone com um cheiro peculiar.</p>
-    </article>
+  <h3>Domingos BEEEEEM aproveitados</h3>
 
-    <article class="mem surge">
-      <div class="mem-topo">
-        <span class="mem-num">09</span>
-      </div>
+  <p>Dos domingos BEEEEEM aproveitados em casa.</p>
 
-      <h3>Domingos BEEEEEM aproveitados</h3>
+  <div class="media">
+    <img src="fotos/foto-09.jpg" alt="" loading="lazy">
+  </div>
+</article>
 
-      <p>Dos domingos BEEEEEM aproveitados em casa.</p>
+<article class="mem mem--sussurro surge">
+  <div class="mem-topo">
+    <span class="mem-num">10</span>
+  </div>
 
-      <div class="media">
-        <img src="fotos/foto-09.jpg" alt="" loading="lazy">
-        <div class="vazio vazio--largo"><span>foto aqui</span></div>
-      </div>
-    </article>
+  <h3>O escondidinho na casa do véi</h3>
 
-    <article class="mem mem--sussurro surge">
-      <div class="mem-topo">
-        <span class="mem-num">10</span>
-      </div>
+  <p>Do nosso escondidinho na casa do véi.</p>
+</article>
 
-      <h3>O escondidinho na casa do véi</h3>
+<article class="mem surge">
+  <div class="mem-topo">
+    <span class="mem-num">11</span>
+  </div>
 
-      <p>Do nosso escondidinho na casa do véi.</p>
-    </article>
+  <h3>Bonnie e Cate</h3>
 
-    <article class="mem surge">
-      <div class="mem-topo">
-        <span class="mem-num">11</span>
-      </div>
+  <p>De Bonnie e Cate.</p>
 
-      <h3>Bonnie e Cate</h3>
+  <div class="media">
+    <img src="fotos/foto-11.jpg" alt="" loading="lazy">
+  </div>
 
-      <p>De Bonnie e Cate.</p>
+  <p class="rabisco">as duas mandando mais em você do que eu</p>
+</article>
 
-      <div class="media">
-        <img src="fotos/foto-11.jpg" alt="" loading="lazy">
-        <div class="vazio"><span>foto aqui</span></div>
-      </div>
+<article class="mem mem--sussurro surge">
+  <div class="mem-topo">
+    <span class="mem-num">12</span>
+  </div>
 
-      <p class="rabisco">as duas mandando mais em você do que eu</p>
-    </article>
+  <h3>Hambúrguer artesanal acompanhado de cookies</h3>
 
-    <article class="mem mem--sussurro surge">
-      <div class="mem-topo">
-        <span class="mem-num">12</span>
-      </div>
+  <p>Do hambúrguer artesanal acompanhado de cookies.</p>
+</article>
 
-      <h3>Hambúrguer artesanal acompanhado de cookies</h3>
+<article class="mem mem--sussurro surge">
+  <div class="mem-topo">
+    <span class="mem-num">13</span>
+  </div>
 
-      <p>Do hambúrguer artesanal acompanhado de cookies.</p>
-    </article>
+  <h3>Aquela cerveja que só a gente gosta</h3>
 
-    <article class="mem mem--sussurro surge">
-      <div class="mem-topo">
-        <span class="mem-num">13</span>
-      </div>
+  <p>Daquela cerveja que só a gente gosta e que eu tô louco pra poder encher a cara com você de novo.</p>
+</article>
 
-      <h3>Aquela cerveja que só a gente gosta</h3>
+<article class="mem surge">
+  <div class="mem-topo">
+    <span class="mem-num">14</span>
+  </div>
 
-      <p>Daquela cerveja que só a gente gosta e que eu tô louco pra poder encher a cara com você de novo.</p>
-    </article>
+  <h3>Viagens de van</h3>
 
-    <article class="mem surge">
-      <div class="mem-topo">
-        <span class="mem-num">14</span>
-      </div>
+  <p>Das viagens de van, sabendo que, por mais cansativas que fossem, me deixavam animado porque eu sabia que iria te ver de novo.</p>
 
-      <h3>Viagens de van</h3>
+  <div class="media">
+    <img src="fotos/foto-14.jpg" alt="" loading="lazy">
+  </div>
+</article>
 
-      <p>Das viagens de van, sabendo que, por mais cansativas que fossem, me deixavam animado porque eu sabia que iria te ver de novo.</p>
+<article class="mem mem--sussurro surge">
+  <div class="mem-topo">
+    <span class="mem-num">15</span>
+  </div>
 
-      <div class="media">
-        <img src="fotos/foto-14.jpg" alt="" loading="lazy">
-        <div class="vazio vazio--largo"><span>foto aqui</span></div>
-      </div>
-    </article>
+  <h3>As minhas pausas pro café no trabalho</h3>
 
-    <article class="mem mem--sussurro surge">
-      <div class="mem-topo">
-        <span class="mem-num">15</span>
-      </div>
+  <p>Das minhas pausas pro café no trabalho, onde tudo que eu fazia era sair correndo pra falar com você.</p>
+</article>
 
-      <h3>As minhas pausas pro café no trabalho</h3>
+<article class="mem surge">
+  <div class="mem-topo">
+    <span class="mem-num">16</span>
+  </div>
 
-      <p>Das minhas pausas pro café no trabalho, onde tudo que eu fazia era sair correndo pra falar com você.</p>
-    </article>
+  <h3>Açaís de domingo</h3>
 
-    <article class="mem surge">
-      <div class="mem-topo">
-        <span class="mem-num">16</span>
-      </div>
+  <p>Dos açaís de domingo com gostinho de despedida e choro embargado.</p>
 
-      <h3>Açaís de domingo</h3>
+  <div class="media">
+    <img src="fotos/foto-16.jpg" alt="" loading="lazy">
+  </div>
+</article>
 
-      <p>Dos açaís de domingo com gostinho de despedida e choro embargado.</p>
+<article class="mem surge">
+  <div class="mem-topo">
+    <span class="mem-num">17</span>
+  </div>
 
-      <div class="media">
-        <img src="fotos/foto-16.jpg" alt="" loading="lazy">
-        <div class="vazio"><span>foto aqui</span></div>
-      </div>
-    </article>
+  <h3>O rolê no Cannil</h3>
 
-    <article class="mem surge">
-      <div class="mem-topo">
-        <span class="mem-num">17</span>
-      </div>
+  <p>Do rolê no Cannil, junto com bebidas gliteres e aquela sensação de aventura.</p>
 
-      <h3>O rolê no Cannil</h3>
+  <div class="media">
+    <img src="fotos/foto-17.jpg" alt="" loading="lazy">
+  </div>
+</article>
 
-      <p>Do rolê no Cannil, junto com bebidas gliteres e aquela sensação de aventura.</p>
+<article class="mem mem--sussurro surge">
+  <div class="mem-topo">
+    <span class="mem-num">18</span>
+  </div>
 
-      <div class="media">
-        <img src="fotos/foto-17.jpg" alt="" loading="lazy">
-        <div class="vazio vazio--largo"><span>foto aqui</span></div>
-      </div>
-    </article>
+  <h3>Meu amor de carnaval</h3>
 
-    <article class="mem mem--sussurro surge">
-      <div class="mem-topo">
-        <span class="mem-num">18</span>
-      </div>
+  <p>Do meu amor de carnaval, que eu só não sabia que seria o amor da minha vida.</p>
+</article>
 
-      <h3>Meu amor de carnaval</h3>
+  </section>  <section>
+    <div class="final">  <div class="video-final surge">
+    <video
+      src="video-final.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+    ></video>
+  </div>
 
-      <p>Do meu amor de carnaval, que eu só não sabia que seria o amor da minha vida.</p>
-    </article>
+  <p class="trinta surge">30.</p>
 
-  </section>
+  <div class="regua"></div>
 
-  <section>
-    <div class="final">
+  <p class="surge">Isso aqui é só um pedaço. Tem muita coisa sua que aconteceu antes de mim e eu nem imagino.</p>
 
-      <div class="video-final surge">
-        <video src="video-final.mp4" autoplay muted loop playsinline preload="metadata"></video>
-      </div>
+  <p class="surge">Mas as que eu vi, eu guardei. E ainda tem uma vida inteira sua pela frente.</p>
 
-      <p class="trinta surge">30.</p>
+  <p class="assina surge">Feliz 30, meu bem.</p>
 
-      <div class="regua"></div>
+</div>
 
-      <p class="surge">Isso aqui é só um pedaço. Tem muita coisa sua que aconteceu antes de mim e eu nem imagino.</p>
-
-      <p class="surge">Mas as que eu vi, eu guardei. E ainda tem uma vida inteira sua pela frente.</p>
-
-      <p class="assina surge">Feliz 30, meu bem.</p>
-    </div>
-  </section>
-
-</main>
-
-<button id="som" aria-label="Tocar música" aria-pressed="false">
+  </section></main><button id="som" aria-label="Tocar música" aria-pressed="false">
   <i></i>
   <i></i>
   <i></i>
-</button>
-
-<div id="som-aviso">toca aqui</div>
-
-<script>
+</button><div id="som-aviso">toca aqui</div><script>
 const SENHAS_ACEITAS = [
   "3a1b80321eb8c581e987187bd14a7f7894d8354b23516403ca8d71fde92c2ccf",
   "a2d8fac4af9aba3f662ddf25a7c82bec67d2d0ce31eb7fc28c7b02cff63a5d39",
@@ -1119,16 +1135,6 @@ if(!site.hidden){
   iniciarAnimacoes();
 }
 
-document.querySelectorAll(".media").forEach(function(m){
-  if(m.querySelector("img")){
-    const v=m.querySelector(".vazio");
-
-    if(v){
-      v.remove();
-    }
-  }
-});
-
 const PLAYLIST=[
   "music/honey-you.mp3",
   "music/caramel.mp3"
@@ -1211,7 +1217,5 @@ setTimeout(function(){
     aviso.classList.remove("visivel");
   },4500);
 },6000);
-</script>
-
-</body>
+</script></body>
 </html>
