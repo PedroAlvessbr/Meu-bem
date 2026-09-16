@@ -1,11 +1,23 @@
-<!DOCTYPE html><html lang="pt-BR">
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
-<meta name="referrer" content="no-referrer"><title>Meu bem</title>
-<meta name="theme-color" content="#F5F2EC"><link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<meta name="referrer" content="no-referrer">
+
+<title>Meu bem</title>
+
+<meta name="theme-color" content="#F5F2EC">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet"><style>
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+
+<style>
+
 :root{
   --papel:#F5F2EC;
   --papel-fundo:#EDE8DE;
@@ -15,7 +27,10 @@
   --caneta:#2C4A6B;
 
   --larg:clamp(320px,92vw,560px);
-  --sombra:0 1px 0 rgba(23,22,20,.04),0 18px 40px -28px rgba(23,22,20,.45);
+
+  --sombra:
+    0 1px 0 rgba(23,22,20,.04),
+    0 18px 40px -28px rgba(23,22,20,.45);
 
   --safe-b:env(safe-area-inset-bottom,0px);
   --safe-t:env(safe-area-inset-top,0px);
@@ -33,10 +48,12 @@ body{
   margin:0;
   background:var(--papel);
   color:var(--tinta);
+
   font-family:"Newsreader",Georgia,"Times New Roman",serif;
   font-size:1.0625rem;
   line-height:1.65;
   font-weight:300;
+
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
@@ -45,11 +62,21 @@ body::before{
   content:"";
   position:fixed;
   inset:0;
+
   pointer-events:none;
   z-index:0;
+
   background:
-    radial-gradient(120% 60% at 50% 0%,rgba(255,255,255,.65),transparent 60%),
-    radial-gradient(100% 50% at 50% 100%,rgba(23,22,20,.05),transparent 60%);
+    radial-gradient(
+      120% 60% at 50% 0%,
+      rgba(255,255,255,.65),
+      transparent 60%
+    ),
+    radial-gradient(
+      100% 50% at 50% 100%,
+      rgba(23,22,20,.05),
+      transparent 60%
+    );
 }
 
 img{
@@ -67,6 +94,7 @@ img{
   border-radius:2px;
 }
 
+
 /* =========================
    PORTÃO
    ========================= */
@@ -75,14 +103,24 @@ img{
   position:fixed;
   inset:0;
   z-index:50;
+
   background:var(--papel);
+
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
+
   overflow-y:auto;
   -webkit-overflow-scrolling:touch;
-  padding:calc(2rem + var(--safe-t)) 1.6rem calc(2rem + var(--safe-b));
-  transition:opacity .9s ease,visibility .9s;
+
+  padding:
+    calc(2rem + var(--safe-t))
+    1.6rem
+    calc(2rem + var(--safe-b));
+
+  transition:
+    opacity .9s ease,
+    visibility .9s;
 }
 
 #portao.aberto{
@@ -102,6 +140,7 @@ img{
 
 .portao-cabecalho p{
   margin:0;
+
   font-style:italic;
   color:var(--cinza);
   font-size:1.05rem;
@@ -111,26 +150,35 @@ img{
   font-family:"Caveat","Segoe Script",cursive;
   font-size:2.35rem;
   line-height:1.15;
+
   margin:.4rem 0 0;
+
   color:var(--tinta);
 }
 
 .campo{
   display:flex;
   align-items:center;
+
   gap:.6rem;
+
   border-bottom:1px solid var(--tinta);
+
   padding-bottom:.55rem;
 }
 
 .campo input{
   flex:1;
   min-width:0;
+
   border:0;
   background:transparent;
+
   font-family:"Caveat",cursive;
   font-size:2rem;
+
   color:var(--caneta);
+
   padding:0;
 }
 
@@ -145,11 +193,15 @@ img{
 .campo button{
   border:0;
   background:transparent;
+
   cursor:pointer;
+
   font-family:"Newsreader",serif;
   font-style:italic;
   font-size:1rem;
+
   color:var(--cinza);
+
   padding:.3rem .1rem;
 }
 
@@ -162,25 +214,46 @@ img{
 }
 
 @keyframes treme{
-  0%,100%{transform:translateX(0)}
-  20%{transform:translateX(-7px)}
-  40%{transform:translateX(6px)}
-  60%{transform:translateX(-4px)}
-  80%{transform:translateX(2px)}
+
+  0%,100%{
+    transform:translateX(0);
+  }
+
+  20%{
+    transform:translateX(-7px);
+  }
+
+  40%{
+    transform:translateX(6px);
+  }
+
+  60%{
+    transform:translateX(-4px);
+  }
+
+  80%{
+    transform:translateX(2px);
+  }
+
 }
 
 #dicas{
   margin-top:2rem;
+
   display:grid;
   gap:1.6rem;
+
   padding-bottom:1rem;
 }
 
 .dica{
   opacity:0;
   transform:translateY(8px);
+
   animation:sobe .7s ease forwards;
+
   border-left:1px solid var(--linha);
+
   padding-left:1rem;
 }
 
@@ -203,29 +276,39 @@ img{
 
 .dica strong{
   display:block;
+
   margin-top:.1rem;
+
   font-family:"Caveat",cursive;
   font-weight:600;
   font-size:1.9rem;
   line-height:1.15;
+
   color:var(--caneta);
 }
 
 @keyframes sobe{
+
   to{
     opacity:1;
     transform:none;
   }
+
 }
 
 .acertou{
   font-family:"Caveat",cursive;
   font-size:2.4rem;
+
   color:var(--caneta);
+
   margin-top:2rem;
+
   opacity:0;
+
   animation:sobe .8s ease forwards;
 }
+
 
 /* =========================
    SITE
@@ -238,10 +321,16 @@ main{
 
 .capa{
   min-height:100svh;
+
   display:flex;
   flex-direction:column;
   justify-content:center;
-  padding:calc(4rem + var(--safe-t)) 1.6rem calc(3rem + var(--safe-b));
+
+  padding:
+    calc(4rem + var(--safe-t))
+    1.6rem
+    calc(3rem + var(--safe-b));
+
   max-width:var(--larg);
   margin:0 auto;
 }
@@ -249,55 +338,82 @@ main{
 .capa h1{
   font-family:"Caveat",cursive;
   font-weight:400;
+
   font-size:clamp(4.2rem,22vw,7rem);
   line-height:.9;
+
   margin:0;
+
   letter-spacing:-.01em;
 }
 
 .capa .idade{
   font-size:clamp(1.5rem,7vw,2rem);
+
   font-weight:300;
+
   letter-spacing:.22em;
+
   margin:1.4rem 0 0;
+
   padding-left:.2rem;
 }
 
 .capa .regua{
   width:3.5rem;
   height:1px;
+
   background:var(--tinta);
+
   margin:2.2rem 0 1.6rem;
 }
 
 .capa .sub{
   margin:0;
+
   max-width:24rem;
+
   color:var(--cinza);
+
   font-style:italic;
   font-size:1.1rem;
 }
 
 .desce{
   margin-top:3.5rem;
+
   font-size:.95rem;
   color:var(--cinza);
+
   display:flex;
   align-items:center;
+
   gap:.7rem;
 }
 
 .desce span{
   width:1px;
   height:2.2rem;
+
   background:var(--linha);
+
   animation:respira 3.2s ease-in-out infinite;
+
   transform-origin:top;
 }
 
 @keyframes respira{
-  0%,100%{transform:scaleY(.4);opacity:.6}
-  50%{transform:scaleY(1);opacity:1}
+
+  0%,100%{
+    transform:scaleY(.4);
+    opacity:.6;
+  }
+
+  50%{
+    transform:scaleY(1);
+    opacity:1;
+  }
+
 }
 
 section{
@@ -324,20 +440,29 @@ section{
 
 .nota{
   font-family:"Caveat",cursive;
+
   color:var(--caneta);
+
   font-size:1.7rem;
   line-height:1.25;
+
   transform:rotate(-1.4deg);
+
   margin:2.6rem 0;
+
   max-width:19rem;
 }
 
 .nota em{
   display:block;
+
   font-size:1.25rem;
+
   opacity:.75;
+
   font-style:italic;
 }
+
 
 /* =========================
    MEMÓRIAS
@@ -345,20 +470,27 @@ section{
 
 .abre-secao{
   max-width:var(--larg);
+
   margin:0 auto;
+
   padding:4.5rem 0 2.5rem;
 }
 
 .abre-secao h2{
   font-weight:300;
+
   font-size:1.6rem;
+
   margin:0 0 .6rem;
+
   line-height:1.25;
 }
 
 .abre-secao p{
   margin:0;
+
   color:var(--cinza);
+
   font-style:italic;
 }
 
@@ -368,9 +500,13 @@ section{
 
 .mem{
   position:relative;
+
   max-width:var(--larg);
+
   margin:0 auto;
+
   padding:2.6rem 0;
+
   border-top:1px solid var(--linha);
 }
 
@@ -381,21 +517,29 @@ section{
 .mem-topo{
   display:flex;
   align-items:baseline;
+
   gap:.75rem;
+
   margin-bottom:.5rem;
 }
 
 .mem-num{
   font-family:"Caveat",cursive;
+
   font-size:1.7rem;
+
   color:var(--caneta);
+
   line-height:1;
 }
 
 .mem h3{
   font-weight:400;
+
   font-size:1.55rem;
+
   line-height:1.2;
+
   margin:0 0 .9rem;
 }
 
@@ -417,13 +561,20 @@ section{
 
 .mem .rabisco{
   font-family:"Caveat",cursive;
+
   font-size:1.45rem;
+
   line-height:1.3;
+
   color:var(--caneta);
+
   transform:rotate(-.8deg);
+
   margin-top:1.1rem;
+
   max-width:20rem;
 }
+
 
 /* =========================
    FOTOS
@@ -431,59 +582,135 @@ section{
 
 .media{
   position:relative;
+
   width:100%;
+
   margin:1.2rem 0 1.3rem;
+
   border-radius:2px;
+
   overflow:hidden;
+
   background:var(--papel-fundo);
+
   box-shadow:var(--sombra);
 }
 
 .media img{
   display:block;
+
   position:relative;
+
   width:100%;
+
   max-width:100%;
+
   height:auto;
+
   object-fit:contain;
 }
+
+
+/* =========================
+   FINAL — INTRODUÇÃO DO VÍDEO
+   ========================= */
+
+.video-intro{
+  padding:0 0 2.2rem;
+  margin:0;
+}
+
+.video-intro p{
+  margin:0 0 .1rem;
+
+  color:var(--cinza);
+
+  font-style:italic;
+
+  font-size:1rem;
+}
+
+.video-intro strong{
+  display:block;
+
+  font-family:"Caveat",cursive;
+
+  font-weight:600;
+
+  font-size:2.15rem;
+
+  line-height:1.05;
+
+  color:var(--caneta);
+
+  transform:rotate(-1deg);
+}
+
+.video-linha{
+  display:block;
+
+  width:2.5rem;
+  height:1px;
+
+  background:var(--linha);
+
+  margin-bottom:1.1rem;
+}
+
 
 /* =========================
    VÍDEO FINAL
    ========================= */
 
-/*
-   O vídeo possui uma CAIXA COM ALTURA FIXA.
-
-   O MP4 nunca define a altura do layout.
-   Ele é apenas encaixado dentro dessa caixa.
-
-   Mobile: 280px
-   Desktop: 360px
-*/
-
 .video-final{
   position:relative;
+
   width:100%;
+
+  /*
+    Altura fixa.
+    O vídeo nunca define o tamanho
+    do restante do layout.
+  */
+
   height:280px;
   min-height:280px;
   max-height:280px;
 
-  margin:0 0 3.5rem;
+  margin:0 0 5.5rem;
 
-  border-radius:2px;
+  border-radius:3px;
+
   overflow:hidden;
 
   background:var(--papel-fundo);
-  box-shadow:var(--sombra);
+
+  box-shadow:
+    0 1px 0 rgba(23,22,20,.04),
+    0 22px 50px -28px rgba(23,22,20,.55);
 
   isolation:isolate;
+}
+
+.video-final::after{
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  pointer-events:none;
+
+  z-index:2;
+
+  border:1px solid rgba(23,22,20,.06);
 }
 
 .video-final video{
   display:block;
 
   position:absolute;
+
   inset:0;
 
   width:100%;
@@ -492,6 +719,7 @@ section{
   max-width:none;
 
   object-fit:contain;
+
   object-position:center;
 
   margin:0;
@@ -500,35 +728,39 @@ section{
   z-index:1;
 }
 
+
 /* =========================
    FINAL
    ========================= */
 
 .final{
   width:100%;
+
   max-width:var(--larg);
+
   margin:0 auto;
 
   min-height:88svh;
 
   display:block;
 
-  padding:6rem 1.6rem calc(7rem + var(--safe-b));
+  padding:
+    7rem
+    1.6rem
+    calc(7rem + var(--safe-b));
 }
-
-/*
-   O 30 possui seu próprio espaço.
-   Ele não divide a mesma área do vídeo.
-*/
 
 .final .trinta{
   display:block;
 
   position:relative;
+
   z-index:2;
 
   font-size:clamp(5rem,30vw,9rem);
+
   font-weight:300;
+
   line-height:.85;
 
   margin:0 0 2rem;
@@ -549,15 +781,20 @@ section{
 
 .final p{
   margin:0 0 1.1rem;
+
   max-width:23rem;
 }
 
 .final .assina{
   font-family:"Caveat",cursive;
+
   font-size:1.8rem;
+
   color:var(--caneta);
+
   margin-top:1.4rem;
 }
+
 
 /* =========================
    SOM
@@ -565,14 +802,19 @@ section{
 
 #som{
   position:fixed;
+
   z-index:30;
+
   left:1.1rem;
-  bottom:calc(1.1rem + var(--safe-b));
+
+  bottom:
+    calc(1.1rem + var(--safe-b));
 
   width:2.9rem;
   height:2.9rem;
 
   border-radius:50%;
+
   border:1px solid var(--linha);
 
   background:rgba(245,242,236,.88);
@@ -581,15 +823,18 @@ section{
   -webkit-backdrop-filter:blur(8px);
 
   display:none;
+
   align-items:center;
   justify-content:center;
 
   gap:2px;
 
   cursor:pointer;
+
   padding:0;
 
-  box-shadow:0 8px 20px -14px rgba(23,22,20,.6);
+  box-shadow:
+    0 8px 20px -14px rgba(23,22,20,.6);
 }
 
 #som.visivel{
@@ -598,16 +843,22 @@ section{
 
 #som i{
   display:block;
+
   width:2px;
   height:9px;
+
   background:var(--cinza);
+
   border-radius:2px;
+
   transform-origin:center;
 }
 
 #som.tocando i{
   background:var(--caneta);
-  animation:barra 1.1s ease-in-out infinite;
+
+  animation:
+    barra 1.1s ease-in-out infinite;
 }
 
 #som.tocando i:nth-child(2){
@@ -619,18 +870,29 @@ section{
 }
 
 @keyframes barra{
-  0%,100%{transform:scaleY(.45)}
-  50%{transform:scaleY(1.25)}
+
+  0%,100%{
+    transform:scaleY(.45);
+  }
+
+  50%{
+    transform:scaleY(1.25);
+  }
+
 }
 
 #som-aviso{
   position:fixed;
+
   z-index:30;
 
   left:4.5rem;
-  bottom:calc(1.55rem + var(--safe-b));
+
+  bottom:
+    calc(1.55rem + var(--safe-b));
 
   font-family:"Caveat",cursive;
+
   font-size:1.2rem;
 
   color:var(--cinza);
@@ -646,17 +908,20 @@ section{
   opacity:1;
 }
 
+
 /* =========================
    ANIMAÇÕES
    ========================= */
 
 .surge{
   opacity:0;
+
   transform:translateY(14px);
 }
 
 .surge.dentro{
   opacity:1;
+
   transform:none;
 
   transition:
@@ -669,7 +934,9 @@ section{
   .surge,
   .surge.dentro{
     opacity:1;
+
     transform:none;
+
     transition:none;
   }
 
@@ -677,7 +944,9 @@ section{
   #som.tocando i{
     animation:none;
   }
+
 }
+
 
 /* =========================
    DESKTOP
@@ -699,587 +968,966 @@ section{
     padding-right:0;
   }
 
+  .video-intro{
+    padding-bottom:2.5rem;
+  }
+
+  .video-intro strong{
+    font-size:2.4rem;
+  }
+
   .video-final{
     height:360px;
     min-height:360px;
     max-height:360px;
+
+    margin-bottom:6.5rem;
   }
+
 }
-</style></head><body><div id="portao">  <div class="portao-caixa"><div class="portao-cabecalho">
 
-  <p>
-    Antes de entrar, uma pergunta.
-  </p>
 
-  <h1 class="portao-pergunta">
-    Qual é a senha?
-  </h1>
+/* =========================
+   JAVASCRIPT
+   ========================= */
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =========================
+     PORTÃO
+     ========================= -->
+
+<div id="portao">
+
+  <div class="portao-caixa">
+
+    <div class="portao-cabecalho">
+
+      <p>
+        Antes de entrar, uma pergunta.
+      </p>
+
+      <h1 class="portao-pergunta">
+        Qual é a senha?
+      </h1>
+
+    </div>
+
+
+    <form
+      class="campo"
+      id="form-senha"
+      autocomplete="off"
+    >
+
+      <input
+        id="senha"
+        type="text"
+        inputmode="text"
+        placeholder="…"
+        aria-label="Senha"
+        autocapitalize="off"
+        autocorrect="off"
+        spellcheck="false"
+      >
+
+      <button type="submit">
+        entrar
+      </button>
+
+    </form>
+
+
+    <div id="dicas"></div>
+
+  </div>
 
 </div>
 
-<form class="campo" id="form-senha" autocomplete="off">
 
-  <input
-    id="senha"
-    type="text"
-    inputmode="text"
-    placeholder="…"
-    aria-label="Senha"
-    autocapitalize="off"
-    autocorrect="off"
-    spellcheck="false"
-  >
+<!-- =========================
+     SITE
+     ========================= -->
 
-  <button type="submit">
-    entrar
-  </button>
+<main id="site" hidden>
 
-</form>
 
-<div id="dicas"></div>
+  <!-- =========================
+       CAPA
+       ========================= -->
 
-  </div></div><main id="site" hidden>  <header class="capa"><h1>
-  Meu bem
-</h1>
+  <header class="capa">
 
-<p class="idade">
-  30 anos
-</p>
+    <h1>
+      Meu bem
+    </h1>
 
-<div class="regua"></div>
+    <p class="idade">
+      30 anos
+    </p>
 
-<p class="sub">
-  Uma pequena coleção das coisas que eu lembro quando penso em você.
-</p>
+    <div class="regua"></div>
 
-<div class="desce">
-  <span></span>
-  deslize
-</div>
+    <p class="sub">
+      Uma pequena coleção das coisas que eu lembro quando penso em você.
+    </p>
 
-  </header>  <section class="carta"><div class="bloco">
+    <div class="desce">
 
-  <p class="surge">
-    E então chegaram os 30 anos do amor da minha vida.
-  </p>
+      <span></span>
 
-  <p class="surge">
-    Pois é. Os 20 ficaram para trás. E, com eles, levaram uma grande fase da sua vida. E eu tive muita sorte de encontrar você bem no finalzinho dela, só pra virarmos tudo de cabeça pra baixo de uma vez.
-  </p>
+      deslize
 
-  <p class="surge">
-    Sinceramente, eu não consigo nem imaginar tudo que você passou até chegar aqui. Quantos estresses, risadas, alegrias e tristezas ficaram pelo caminho. Quantas pessoas você quis esganar e não esganou, quantos corpos você já enfiou naquela mala enorme em cima do guarda-roupa e desovou por aí 🧐.
-  </p>
+    </div>
 
-<p>
-  Todos os momentos, por mais positivos ou negativos que tenham sido, moldaram a mulher incrível que você é hoje.<br><br>
+  </header>
 
-  Sou muito orgulhoso de poder ter visto você se tornar a melhor mãe do mundo bem diante dos meus olhos. Admiro muito todo o cuidado que você tem com as pessoas ao seu redor, e sei que vai ter uma pessoinha que, logo, logo, vai herdar esses costumes. Você pode não perceber, mas deixa uma marca por onde passa, e ninguém no mundo jamais vai conseguir substituir você, no que quer que seja.<br><br>
 
-  Você é única, divertida, engraçada, competente e muito certa do que quer para a sua vida.<br><br>
+  <!-- =========================
+       CARTA
+       ========================= -->
 
-  Eu sei que os dias têm sido longos e os meses, curtos, mas saiba que, se estamos de pé até hoje, foi tudo graças a você. Você me inspira todos os dias e me dá um motivo para tentar ser melhor amanhã. E depois.<br><br>
+  <section class="carta">
 
-  Obrigado por correr do meu lado, meu amor.
-</p>
+    <div class="bloco">
 
+      <p class="surge">
+        E então chegaram os 30 anos do amor da minha vida.
+      </p>
 
-  <p class="surge">
-    Dito isso, vamos à parte importante?
-  </p>
+      <p class="surge">
+        Pois é. Os 20 ficaram para trás. E, com eles, levaram uma grande fase da sua vida. E eu tive muita sorte de encontrar você bem no finalzinho dela, só pra virarmos tudo de cabeça pra baixo de uma vez.
+      </p>
 
-  <p class="nota surge">
-    A parte mais legal dos seus 30 anos
-    <em>(a parte que eu estou 🤠)</em>
-  </p>
+      <p class="surge">
+        Sinceramente, eu não consigo nem imaginar tudo que você passou até chegar aqui. Quantos estresses, risadas, alegrias e tristezas ficaram pelo caminho. Quantas pessoas você quis esganar e não esganou, quantos corpos você já enfiou naquela mala enorme em cima do guarda-roupa e desovou por aí 🧐.
+      </p>
 
-</div>
+      <p>
 
-  </section>  <section><div class="abre-secao surge">
+        Todos os momentos, por mais positivos ou negativos que tenham sido, moldaram a mulher incrível que você é hoje.
 
-  <h2>
-    Eu não conheço tudo que aconteceu antes de mim.
-  </h2>
+        <br><br>
 
-  <p>
-    Mas conheço estas aqui. Em nenhuma ordem específica.
-  </p>
+        Sou muito orgulhoso de poder ter visto você se tornar a melhor mãe do mundo bem diante dos meus olhos. Admiro muito todo o cuidado que você tem com as pessoas ao seu redor, e sei que vai ter uma pessoinha que, logo, logo, vai herdar esses costumes. Você pode não perceber, mas deixa uma marca por onde passa, e ninguém no mundo jamais vai conseguir substituir você, no que quer que seja.
 
-</div>
+        <br><br>
 
-  </section>  <section class="memorias"><article class="mem surge">
+        Você é única, divertida, engraçada, competente e muito certa do que quer para a sua vida.
 
-  <div class="mem-topo">
-    <span class="mem-num">01</span>
-  </div>
+        <br><br>
 
-  <h3>
-    Welcome to the Jungle
-  </h3>
+        Eu sei que os dias têm sido longos e os meses, curtos, mas saiba que, se estamos de pé até hoje, foi tudo graças a você. Você me inspira todos os dias e me dá um motivo para tentar ser melhor amanhã. E depois.
 
-  <p>
-    Não canso de lembrar da felicidade da Amandinha quando começou a tocar Welcome to the Jungle aquele dia.
-  </p>
+        <br><br>
 
-  <div class="media">
-    <img src="Fotos/foto-01.jpg" alt="" loading="lazy">
-  </div>
+        Obrigado por correr do meu lado, meu amor.
 
-  <p class="rabisco">
-    Ocê virou outra pessoa em dois segundos
-  </p>
+      </p>
 
-</article>
 
-<article class="mem mem--sussurro surge">
+      <p class="surge">
+        Dito isso, vamos à parte importante?
+      </p>
 
-  <div class="mem-topo">
-    <span class="mem-num">02</span>
-  </div>
 
-  <h3>
-    Aquele sorriso
-  </h3>
+      <p class="nota surge">
 
-  <p>
-    No dia em que te pedi em namoro no meu quarto.
-  </p>
+        A parte mais legal dos seus 30 anos
 
-  <div class="media">
-    <img src="Fotos/foto-02.jpg" alt="" loading="lazy">
-  </div>
+        <em>
+          (a parte que eu estou 🤠)
+        </em>
 
-</article>
+      </p>
 
-<article class="mem surge">
+    </div>
 
-  <div class="mem-topo">
-    <span class="mem-num">03</span>
-  </div>
+  </section>
 
-  <h3>
-    St. John's
-  </h3>
 
-  <p>
-    De você extremamente sociável aquele dia.
-  </p>
+  <!-- =========================
+       ABERTURA MEMÓRIAS
+       ========================= -->
 
-  <div class="media">
-    <img src="Fotos/foto-03.jpg" alt="" loading="lazy">
-  </div>
+  <section>
 
-</article>
+    <div class="abre-secao surge">
 
-<article class="mem surge">
+      <h2>
+        Eu não conheço tudo que aconteceu antes de mim.
+      </h2>
 
-  <div class="mem-topo">
-    <span class="mem-num">04</span>
-  </div>
+      <p>
+        Mas conheço estas aqui. Em nenhuma ordem específica.
+      </p>
 
-  <h3>
-    Nosso primeiro cochilo em família
-  </h3>
+    </div>
 
-  <p>
-    A gente ainda não sabia que a godinha já estava entre nós.
-  </p>
+  </section>
 
-  <div class="media">
-    <img src="Fotos/foto-04.jpg" alt="" loading="lazy">
-  </div>
 
-</article>
+  <!-- =========================
+       MEMÓRIAS
+       ========================= -->
 
-<article class="mem mem--sussurro surge">
+  <section class="memorias">
 
-  <div class="mem-topo">
-    <span class="mem-num">05</span>
-  </div>
 
-  <h3>
-    O nosso roteiro
-  </h3>
+    <!-- 01 -->
 
-  <p>
-    Das coisas que ainda vamos fazer como um casal.
-  </p>
+    <article class="mem surge">
 
-  <div class="media">
-    <img src="Fotos/foto-05.jpg" alt="" loading="lazy">
-  </div>
+      <div class="mem-topo">
+        <span class="mem-num">
+          01
+        </span>
+      </div>
 
-  <p class="rabisco">
-    Eu espero muito que você ainda tenha ela, porque eu não lembro de NADA 🤠 
-  </p>
+      <h3>
+        Welcome to the Jungle
+      </h3>
 
-</article>
+      <p>
+        Não canso de lembrar da felicidade da Amandinha quando começou a tocar Welcome to the Jungle aquele dia.
+      </p>
 
-<article class="mem surge">
+      <div class="media">
 
-  <div class="mem-topo">
-    <span class="mem-num">06</span>
-  </div>
+        <img
+          src="Fotos/foto-01.jpg"
+          alt=""
+          loading="lazy"
+        >
 
-  <h3>
-    Seus 29 anos
-  </h3>
+      </div>
 
-  <div class="media">
-    <img src="Fotos/foto-06.jpg" alt="" loading="lazy">
-  </div>
+      <p class="rabisco">
+        Ocê virou outra pessoa em dois segundos
+      </p>
 
+    </article>
 
-  <p class="rabisco">
-    Calor infernal e agua na lata. Ainda bem que tinha lugar pra sentar kkkkkkk
-  </p>
 
+    <!-- 02 -->
 
-  <p>
-    A também fui emo, seguida de um BK que não deu nem pra tapar o buraco do dente.
-  </p>
+    <article class="mem mem--sussurro surge">
 
-</article>
+      <div class="mem-topo">
+        <span class="mem-num">
+          02
+        </span>
+      </div>
 
-<article class="mem surge">
+      <h3>
+        Aquele sorriso
+      </h3>
 
-  <div class="mem-topo">
-    <span class="mem-num">07</span>
-  </div>
+      <p>
+        No dia em que te pedi em namoro no meu quarto.
+      </p>
 
-  <h3>
-    Boquinha
-  </h3>
+      <div class="media">
 
-  <p>
-    Eu amo MUITO essa foto :D 
-  </p>
+        <img
+          src="Fotos/foto-02.jpg"
+          alt=""
+          loading="lazy"
+        >
 
-  <div class="media">
-    <img src="Fotos/foto-07.jpg" alt="" loading="lazy">
-  </div>
+      </div>
 
-</article>
+    </article>
 
-<article class="mem mem--sussurro surge">
 
-  <div class="mem-topo">
-    <span class="mem-num">08</span>
-  </div>
+    <!-- 03 -->
 
-  <h3>
-    O maldito cravo
-  </h3>
+    <article class="mem surge">
 
-  <p>
-    Pq essa porra dói tanto? D: 
-  </p>
+      <div class="mem-topo">
+        <span class="mem-num">
+          03
+        </span>
+      </div>
 
-  <div class="media">
-    <img src="Fotos/foto-08.jpg" alt="" loading="lazy">
-  </div>
+      <h3>
+        St. John's
+      </h3>
 
-</article>
+      <p>
+        De você extremamente sociável aquele dia.
+      </p>
 
-<article class="mem surge">
+      <div class="media">
 
-  <div class="mem-topo">
-    <span class="mem-num">09</span>
-  </div>
+        <img
+          src="Fotos/foto-03.jpg"
+          alt=""
+          loading="lazy"
+        >
 
-  <h3>
-    Domingos BEEEEEM aproveitados
-  </h3>
+      </div>
 
-  <p>
-    Você sabe do que eu to falando 😶‍🌫️
-  </p>
+    </article>
 
-  <div class="media">
-    <img src="Fotos/foto-09.jpg" alt="" loading="lazy">
-  </div>
 
-</article>
+    <!-- 04 -->
 
-<article class="mem mem--sussurro surge">
+    <article class="mem surge">
 
-  <div class="mem-topo">
-    <span class="mem-num">10</span>
-  </div>
+      <div class="mem-topo">
+        <span class="mem-num">
+          04
+        </span>
+      </div>
 
-  <h3>
-    O escondidinho na casa do véi
-  </h3>
+      <h3>
+        Nosso primeiro cochilo em família
+      </h3>
 
-  <p>
-    A gente finge que não era pra ser uma batata recheada, e que dois pacotes bis foram suficientes.
-  </p>
+      <p>
+        A gente ainda não sabia que a godinha já estava entre nós.
+      </p>
 
-  <div class="media">
-    <img src="Fotos/foto-10.jpg" alt="" loading="lazy">
-  </div>
+      <div class="media">
 
-</article>
+        <img
+          src="Fotos/foto-04.jpg"
+          alt=""
+          loading="lazy"
+        >
 
-<article class="mem surge">
+      </div>
 
-  <div class="mem-topo">
-    <span class="mem-num">11</span>
-  </div>
+    </article>
 
-  <h3>
-    Bonnie e Cate
-  </h3>
 
-  <p>
-    Onde o plano de dominação mundial do bacate começou.
-  </p>
+    <!-- 05 -->
 
-  <div class="media">
-    <img src="Fotos/foto-11.jpg" alt="" loading="lazy">
-  </div>
+    <article class="mem mem--sussurro surge">
 
-  <p class="rabisco">
-    Eles não se gostam muito desde então
-  </p>
+      <div class="mem-topo">
+        <span class="mem-num">
+          05
+        </span>
+      </div>
 
-</article>
+      <h3>
+        O nosso roteiro
+      </h3>
 
-<article class="mem mem--sussurro surge">
+      <p>
+        Das coisas que ainda vamos fazer como um casal.
+      </p>
 
-  <div class="mem-topo">
-    <span class="mem-num">12</span>
-  </div>
+      <div class="media">
 
-  <h3>
-    O rolê desnecessário no médico
-  </h3>
+        <img
+          src="Fotos/foto-05.jpg"
+          alt=""
+          loading="lazy"
+        >
 
-  <p>
-    Um dia produtivo 🥱
-  </p>
+      </div>
 
-  <div class="media">
-    <img src="Fotos/foto-12.jpg" alt="" loading="lazy">
-  </div>
+      <p class="rabisco">
+        Eu espero muito que você ainda tenha ela, porque eu não lembro de NADA 🤠
+      </p>
 
-</article>
+    </article>
 
-<article class="mem mem--sussurro surge">
 
-  <div class="mem-topo">
-    <span class="mem-num">13</span>
-  </div>
+    <!-- 06 -->
 
-  <h3>
-    Aquela cerveja que só a gente gosta
-  </h3>
+    <article class="mem surge">
 
-  <p>
-    Tô louco pra poder encher a cara com você de novo.
-  </p>
+      <div class="mem-topo">
+        <span class="mem-num">
+          06
+        </span>
+      </div>
 
-  <div class="media">
-    <img src="Fotos/foto-13.jpg" alt="" loading="lazy">
-  </div>
+      <h3>
+        Seus 29 anos
+      </h3>
 
-  <p class="rabisco">
-    Você vai chapar na primeira lata 🤣 
-  </p>
+      <div class="media">
 
+        <img
+          src="Fotos/foto-06.jpg"
+          alt=""
+          loading="lazy"
+        >
 
-</article>
+      </div>
 
-<article class="mem surge">
+      <p class="rabisco">
+        Calor infernal e agua na lata. Ainda bem que tinha lugar pra sentar kkkkkkk
+      </p>
 
-  <div class="mem-topo">
-    <span class="mem-num">14</span>
-  </div>
+      <p>
+        A também fui emo, seguida de um BK que não deu nem pra tapar o buraco do dente.
+      </p>
 
-  <h3>
-    Viagens de van
-  </h3>
+    </article>
 
-  <p>
-    Aquela sensação ruim de te ver indo embora todos os domingos.
-  </p>
 
-  <div class="media">
-    <img src="Fotos/foto-14.jpg" alt="" loading="lazy">
-  </div>
+    <!-- 07 -->
 
-  <p class="rabisco">
-    O motorista tava cheirado, mas vocês chegaram bem 🥸 
-  </p>
+    <article class="mem surge">
 
+      <div class="mem-topo">
+        <span class="mem-num">
+          07
+        </span>
+      </div>
 
-</article>
+      <h3>
+        Boquinha
+      </h3>
 
-<article class="mem mem--sussurro surge">
+      <p>
+        Eu amo MUITO essa foto :D
+      </p>
 
-  <div class="mem-topo">
-    <span class="mem-num">15</span>
-  </div>
+      <div class="media">
 
-  <h3>
-    FAST FOOD
-  </h3>
+        <img
+          src="Fotos/foto-07.jpg"
+          alt=""
+          loading="lazy"
+        >
 
-  <p>
-    Minhas costas doem só de lembrar o tempo que eu fiquei em pé esperando um balde de frango frito.
-  </p>
+      </div>
 
-  <div class="media">
-    <img src="Fotos/foto-15.jpg" alt="" loading="lazy">
-  </div>
+    </article>
 
-</article>
 
-<article class="mem surge">
+    <!-- 08 -->
 
-  <div class="mem-topo">
-    <span class="mem-num">16</span>
-  </div>
+    <article class="mem mem--sussurro surge">
 
-  <h3>
-    Açaís de domingo
-  </h3>
+      <div class="mem-topo">
+        <span class="mem-num">
+          08
+        </span>
+      </div>
 
-  <p>
-    A parte dos nossos dias que eu mais sinto falta da praia.
-  </p>
+      <h3>
+        O maldito cravo
+      </h3>
 
-  <div class="media">
-    <img src="Fotos/foto-16.jpg" alt="" loading="lazy">
-  </div>
+      <p>
+        Pq essa porra dói tanto? D:
+      </p>
 
-</article>
+      <div class="media">
 
-<article class="mem surge">
+        <img
+          src="Fotos/foto-08.jpg"
+          alt=""
+          loading="lazy"
+        >
 
-  <div class="mem-topo">
-    <span class="mem-num">17</span>
-  </div>
+      </div>
 
-  <h3>
-    O rolê no Cannil
-  </h3>
+    </article>
 
-  <p>
-    Summer eletrohits, roupas do bloquinho, 2 gins misteriosos na mente e vontade de viver.
-  </p>
 
-  <div class="media">
-    <img src="Fotos/foto-17.jpg" alt="" loading="lazy">
-  </div>
+    <!-- 09 -->
 
+    <article class="mem surge">
 
-</article>
+      <div class="mem-topo">
+        <span class="mem-num">
+          09
+        </span>
+      </div>
 
-<article class="mem mem--sussurro surge">
+      <h3>
+        Domingos BEEEEEM aproveitados
+      </h3>
 
-  <div class="mem-topo">
-    <span class="mem-num">18</span>
-  </div>
+      <p>
+        Você sabe do que eu to falando 😶‍🌫️
+      </p>
 
-  <h3>
-    Meu amor de carnaval
-  </h3>
+      <div class="media">
 
-  <p>
-   Aquele que eu não tinha ideia de que era o amor da minha vida.
-  </p>
-  
-  
+        <img
+          src="Fotos/foto-09.jpg"
+          alt=""
+          loading="lazy"
+        >
 
-  <div class="media">
-    <img src="Fotos/foto-18.jpg" alt="" loading="lazy">
-  </div>
-  <p class="rabisco">
-    Eu amo muito você! 
-  </p>
+      </div>
 
-</article>
+    </article>
 
-  </section>  <section><div class="final">
-     <p class="rabisco">
-    Esse é o meu preferido! 
-  </p>
 
-  <div class="video-final surge">
+    <!-- 10 -->
 
-    <video
-      src="video-final.mp4"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="auto"
-    ></video>
+    <article class="mem mem--sussurro surge">
 
-  </div>
+      <div class="mem-topo">
+        <span class="mem-num">
+          10
+        </span>
+      </div>
 
-  <p class="trinta surge">
-    30.
-  </p>
+      <h3>
+        O escondidinho na casa do véi
+      </h3>
 
-  <div class="regua"></div>
+      <p>
+        A gente finge que não era pra ser uma batata recheada, e que dois pacotes bis foram suficientes.
+      </p>
 
-  <p class="surge">
-    Isso aqui é só um pedaço. Tem muita coisa sua que aconteceu antes de mim e eu nem imagino.
-  </p>
+      <div class="media">
 
-  <p class="surge">
-    Mas as que eu vi, eu guardei. E ainda tem uma vida inteira sua pela frente.
-  </p>
+        <img
+          src="Fotos/foto-10.jpg"
+          alt=""
+          loading="lazy"
+        >
 
-  <p class="assina surge">
-    Feliz 30, meu bem.
-  </p>
+      </div>
 
-</div>
+    </article>
 
-  </section></main><button id="som" aria-label="Tocar música" aria-pressed="false"><i></i>
-<i></i>
-<i></i>
 
-</button><div id="som-aviso">
+    <!-- 11 -->
+
+    <article class="mem surge">
+
+      <div class="mem-topo">
+        <span class="mem-num">
+          11
+        </span>
+      </div>
+
+      <h3>
+        Bonnie e Cate
+      </h3>
+
+      <p>
+        Onde o plano de dominação mundial do bacate começou.
+      </p>
+
+      <div class="media">
+
+        <img
+          src="Fotos/foto-11.jpg"
+          alt=""
+          loading="lazy"
+        >
+
+      </div>
+
+      <p class="rabisco">
+        Eles não se gostam muito desde então
+      </p>
+
+    </article>
+
+
+    <!-- 12 -->
+
+    <article class="mem mem--sussurro surge">
+
+      <div class="mem-topo">
+        <span class="mem-num">
+          12
+        </span>
+      </div>
+
+      <h3>
+        O rolê desnecessário no médico
+      </h3>
+
+      <p>
+        Um dia produtivo 🥱
+      </p>
+
+      <div class="media">
+
+        <img
+          src="Fotos/foto-12.jpg"
+          alt=""
+          loading="lazy"
+        >
+
+      </div>
+
+    </article>
+
+
+    <!-- 13 -->
+
+    <article class="mem mem--sussurro surge">
+
+      <div class="mem-topo">
+        <span class="mem-num">
+          13
+        </span>
+      </div>
+
+      <h3>
+        Aquela cerveja que só a gente gosta
+      </h3>
+
+      <p>
+        Tô louco pra poder encher a cara com você de novo.
+      </p>
+
+      <div class="media">
+
+        <img
+          src="Fotos/foto-13.jpg"
+          alt=""
+          loading="lazy"
+        >
+
+      </div>
+
+      <p class="rabisco">
+        Você vai chapar na primeira lata 🤣
+      </p>
+
+    </article>
+
+
+    <!-- 14 -->
+
+    <article class="mem surge">
+
+      <div class="mem-topo">
+        <span class="mem-num">
+          14
+        </span>
+      </div>
+
+      <h3>
+        Viagens de van
+      </h3>
+
+      <p>
+        Aquela sensação ruim de te ver indo embora todos os domingos.
+      </p>
+
+      <div class="media">
+
+        <img
+          src="Fotos/foto-14.jpg"
+          alt=""
+          loading="lazy"
+        >
+
+      </div>
+
+      <p class="rabisco">
+        O motorista tava cheirado, mas vocês chegaram bem 🥸
+      </p>
+
+    </article>
+
+
+    <!-- 15 -->
+
+    <article class="mem mem--sussurro surge">
+
+      <div class="mem-topo">
+        <span class="mem-num">
+          15
+        </span>
+      </div>
+
+      <h3>
+        FAST FOOD
+      </h3>
+
+      <p>
+        Minhas costas doem só de lembrar o tempo que eu fiquei em pé esperando um balde de frango frito.
+      </p>
+
+      <div class="media">
+
+        <img
+          src="Fotos/foto-15.jpg"
+          alt=""
+          loading="lazy"
+        >
+
+      </div>
+
+    </article>
+
+
+    <!-- 16 -->
+
+    <article class="mem surge">
+
+      <div class="mem-topo">
+        <span class="mem-num">
+          16
+        </span>
+      </div>
+
+      <h3>
+        Açaís de domingo
+      </h3>
+
+      <p>
+        A parte dos nossos dias que eu mais sinto falta da praia.
+      </p>
+
+      <div class="media">
+
+        <img
+          src="Fotos/foto-16.jpg"
+          alt=""
+          loading="lazy"
+        >
+
+      </div>
+
+    </article>
+
+
+    <!-- 17 -->
+
+    <article class="mem surge">
+
+      <div class="mem-topo">
+        <span class="mem-num">
+          17
+        </span>
+      </div>
+
+      <h3>
+        O rolê no Cannil
+      </h3>
+
+      <p>
+        Summer eletrohits, roupas do bloquinho, 2 gins misteriosos na mente e vontade de viver.
+      </p>
+
+      <div class="media">
+
+        <img
+          src="Fotos/foto-17.jpg"
+          alt=""
+          loading="lazy"
+        >
+
+      </div>
+
+    </article>
+
+
+    <!-- 18 -->
+
+    <article class="mem mem--sussurro surge">
+
+      <div class="mem-topo">
+        <span class="mem-num">
+          18
+        </span>
+      </div>
+
+      <h3>
+        Meu amor de carnaval
+      </h3>
+
+      <p>
+        Aquele que eu não tinha ideia de que era o amor da minha vida.
+      </p>
+
+      <div class="media">
+
+        <img
+          src="Fotos/foto-18.jpg"
+          alt=""
+          loading="lazy"
+        >
+
+      </div>
+
+      <p class="rabisco">
+        Eu amo muito você!
+      </p>
+
+    </article>
+
+
+  </section>
+
+
+  <!-- =========================
+       FINAL
+       ========================= -->
+
+  <section>
+
+    <div class="final">
+
+
+      <!-- INTRODUÇÃO DO VÍDEO -->
+
+      <div class="video-intro surge">
+
+        <span class="video-linha"></span>
+
+        <p>
+          Mas esse aqui...
+        </p>
+
+        <strong>
+          esse é o meu preferido.
+        </strong>
+
+      </div>
+
+
+      <!-- VÍDEO -->
+
+      <div class="video-final surge">
+
+        <video
+          src="video-final.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+        ></video>
+
+      </div>
+
+
+      <!-- 30 -->
+
+      <p class="trinta surge">
+        30.
+      </p>
+
+      <div class="regua"></div>
+
+
+      <p class="surge">
+        Isso aqui é só um pedaço. Tem muita coisa sua que aconteceu antes de mim e eu nem imagino.
+      </p>
+
+      <p class="surge">
+        Mas as que eu vi, eu guardei. E ainda tem uma vida inteira sua pela frente.
+      </p>
+
+      <p class="assina surge">
+        Feliz 30, meu bem.
+      </p>
+
+
+    </div>
+
+  </section>
+
+
+</main>
+
+
+<!-- =========================
+     BOTÃO DE SOM
+     ========================= -->
+
+<button
+  id="som"
+  aria-label="Tocar música"
+  aria-pressed="false"
+>
+
+  <i></i>
+  <i></i>
+  <i></i>
+
+</button>
+
+
+<div id="som-aviso">
   toca aqui
-</div><script>
+</div>
+
+
+<script>
+
+
+/* =========================
+   SENHAS
+   ========================= */
 
 const SENHAS_ACEITAS = [
+
   "3a1b80321eb8c581e987187bd14a7f7894d8354b23516403ca8d71fde92c2ccf",
+
   "a2d8fac4af9aba3f662ddf25a7c82bec67d2d0ce31eb7fc28c7b02cff63a5d39",
+
   "11b0147cac181f433e7f220d2b0cead50d61cf065a82b45b768428419d83433e",
+
   "7d6f4d3a4e55b80049b3e754f6cca3f3227910992a993490f4009c8fab1414fb"
+
 ];
 
+
 const DICAS = [
+
   {
     erro:"Não seria tão obvio assim também, né?",
     dica:"o dia de chegada da nossa criança"
   },
+
   {
     erro:"NÃO ESSA, a outra criança.",
     dica:"bacate-day 🥑"
   },
+
   {
     erro:"Não preparei nada, não achei que fossemos chegar até aqui…",
     dica:"nosso aniversário"
   },
+
   {
     erro:"Ok. Você venceu.",
     dica:"04/04/25. Pronto. Falei."
   }
+
 ];
 
-const portao=document.getElementById("portao");
-const site=document.getElementById("site");
-const form=document.getElementById("form-senha");
-const campo=document.getElementById("senha");
-const caixaDicas=document.getElementById("dicas");
 
-let erros=0;
+const portao =
+  document.getElementById("portao");
+
+const site =
+  document.getElementById("site");
+
+const form =
+  document.getElementById("form-senha");
+
+const campo =
+  document.getElementById("senha");
+
+const caixaDicas =
+  document.getElementById("dicas");
+
+
+let erros = 0;
+
+
+/* =========================
+   LIMPAR SENHA
+   ========================= */
 
 function limpar(v){
 
@@ -1291,95 +1939,165 @@ function limpar(v){
 
 }
 
+
+/* =========================
+   HASH
+   ========================= */
+
 async function hashDaSenha(texto){
 
-  const dados=new TextEncoder().encode(
-    limpar(texto)
-  );
+  const dados =
+    new TextEncoder().encode(
+      limpar(texto)
+    );
 
-  const buf=await crypto.subtle.digest(
-    "SHA-256",
-    dados
-  );
+  const buf =
+    await crypto.subtle.digest(
+      "SHA-256",
+      dados
+    );
 
   return Array.from(
     new Uint8Array(buf)
   )
   .map(function(b){
-    return b.toString(16).padStart(2,"0");
+
+    return b
+      .toString(16)
+      .padStart(2,"0");
+
   })
   .join("");
 
 }
 
-window.hashDaSenha=hashDaSenha;
 
-form.addEventListener("submit",async function(e){
+window.hashDaSenha =
+  hashDaSenha;
 
-  e.preventDefault();
 
-  if(!limpar(campo.value)) return;
+/* =========================
+   LOGIN
+   ========================= */
 
-  const tentativa=await hashDaSenha(
-    campo.value
-  );
+form.addEventListener(
+  "submit",
+  async function(e){
 
-  if(SENHAS_ACEITAS.indexOf(tentativa)!==-1){
+    e.preventDefault();
 
-    abrir();
+    if(!limpar(campo.value)){
+      return;
+    }
 
-    return;
+
+    const tentativa =
+      await hashDaSenha(
+        campo.value
+      );
+
+
+    if(
+      SENHAS_ACEITAS.indexOf(
+        tentativa
+      ) !== -1
+    ){
+
+      abrir();
+
+      return;
+
+    }
+
+
+    const item =
+      DICAS[
+        Math.min(
+          erros,
+          DICAS.length - 1
+        )
+      ];
+
+
+    erros++;
+
+
+    const el =
+      document.createElement(
+        "div"
+      );
+
+
+    el.className =
+      "dica";
+
+
+    el.innerHTML =
+      '<p class="erro">' +
+      item.erro +
+      '</p>' +
+
+      '<p>' +
+
+      '<span class="rotulo-dica">' +
+      'dica:' +
+      '</span>' +
+
+      '<strong>' +
+      item.dica +
+      '</strong>' +
+
+      '</p>';
+
+
+    caixaDicas.appendChild(el);
+
+
+    campo.value = "";
+
+    campo.focus();
+
+
+    form.classList.remove(
+      "errou"
+    );
+
+
+    void form.offsetWidth;
+
+
+    form.classList.add(
+      "errou"
+    );
+
+
+    el.scrollIntoView({
+
+      behavior:"smooth",
+
+      block:"nearest"
+
+    });
 
   }
+);
 
-  const item=DICAS[
-    Math.min(
-      erros,
-      DICAS.length-1
-    )
-  ];
 
-  erros++;
-
-  const el=document.createElement("div");
-
-  el.className="dica";
-
-  el.innerHTML=
-    '<p class="erro">'+
-    item.erro+
-    '</p>'+
-    '<p>'+
-    '<span class="rotulo-dica">dica:</span>'+
-    '<strong>'+
-    item.dica+
-    '</strong>'+
-    '</p>';
-
-  caixaDicas.appendChild(el);
-
-  campo.value="";
-  campo.focus();
-
-  form.classList.remove("errou");
-
-  void form.offsetWidth;
-
-  form.classList.add("errou");
-
-  el.scrollIntoView({
-    behavior:"smooth",
-    block:"nearest"
-  });
-
-});
+/* =========================
+   ABRIR
+   ========================= */
 
 function abrir(){
 
-  form.style.display="none";
+  form.style.display =
+    "none";
 
-  caixaDicas.innerHTML=
-    '<p class="acertou">Bem vinda, Amanda cochilinho.</p>';
+
+  caixaDicas.innerHTML =
+    '<p class="acertou">' +
+    'Bem vinda, Amanda cochilinho.' +
+    '</p>';
+
 
   try{
 
@@ -1390,38 +2108,58 @@ function abrir(){
 
   }catch(e){}
 
-  setTimeout(function(){
 
-    site.hidden=false;
+  setTimeout(
+    function(){
 
-    portao.classList.add("aberto");
+      site.hidden = false;
 
-    document
-      .getElementById("som")
-      .classList
-      .add("visivel");
+      portao.classList.add(
+        "aberto"
+      );
 
-    iniciarAnimacoes();
 
-    setTimeout(function(){
+      document
+        .getElementById("som")
+        .classList
+        .add("visivel");
 
-      portao.remove();
 
-    },1000);
+      iniciarAnimacoes();
 
-  },1500);
+
+      setTimeout(
+        function(){
+
+          portao.remove();
+
+        },
+        1000
+      );
+
+    },
+    1500
+  );
 
 }
+
+
+/* =========================
+   SESSION STORAGE
+   ========================= */
 
 try{
 
   if(
-    sessionStorage.getItem("meubem")==="1"
+    sessionStorage.getItem(
+      "meubem"
+    ) === "1"
   ){
 
-    site.hidden=false;
+    site.hidden = false;
 
     portao.remove();
+
 
     document
       .getElementById("som")
@@ -1432,57 +2170,85 @@ try{
 
 }catch(e){}
 
+
+/* =========================
+   ANIMAÇÕES
+   ========================= */
+
 function iniciarAnimacoes(){
 
-  const alvos=
-    document.querySelectorAll(".surge");
+  const alvos =
+    document.querySelectorAll(
+      ".surge"
+    );
 
-  if(!("IntersectionObserver" in window)){
 
-    alvos.forEach(function(el){
+  if(
+    !("IntersectionObserver" in window)
+  ){
 
-      el.classList.add("dentro");
+    alvos.forEach(
+      function(el){
 
-    });
+        el.classList.add(
+          "dentro"
+        );
+
+      }
+    );
 
     return;
 
   }
 
-  const obs=
+
+  const obs =
     new IntersectionObserver(
+
       function(entradas){
 
-        entradas.forEach(function(en){
+        entradas.forEach(
+          function(en){
 
-          if(en.isIntersecting){
+            if(en.isIntersecting){
 
-            en.target.classList.add(
-              "dentro"
-            );
+              en.target.classList.add(
+                "dentro"
+              );
 
-            obs.unobserve(
-              en.target
-            );
+
+              obs.unobserve(
+                en.target
+              );
+
+            }
 
           }
-
-        });
+        );
 
       },
+
       {
-        rootMargin:"0px 0px -12% 0px",
-        threshold:0.05
+        rootMargin:
+          "0px 0px -12% 0px",
+
+        threshold:.05
+
       }
+
     );
 
-  alvos.forEach(function(el){
 
-    obs.observe(el);
+  alvos.forEach(
+    function(el){
 
-  });
+      obs.observe(el);
+
+    }
+  );
 
 }
+
 
 if(!site.hidden){
 
@@ -1490,44 +2256,76 @@ if(!site.hidden){
 
 }
 
+
 /* =========================
    ÁUDIO
    ========================= */
 
-const PLAYLIST=[
+const PLAYLIST = [
+
   "music/honey-you.mp3",
+
   "music/caramel.mp3"
+
 ];
 
-const botaoSom=
-  document.getElementById("som");
 
-const aviso=
-  document.getElementById("som-aviso");
+const botaoSom =
+  document.getElementById(
+    "som"
+  );
 
-let audio=null;
-let faixa=0;
+
+const aviso =
+  document.getElementById(
+    "som-aviso"
+  );
+
+
+let audio = null;
+
+let faixa = 0;
+
+
+/* =========================
+   PREPARAR ÁUDIO
+   ========================= */
 
 function prepararAudio(){
 
-  if(audio) return;
+  if(audio){
+    return;
+  }
 
-  audio=new Audio();
 
-  audio.preload="none";
-  audio.volume=0.65;
-  audio.src=PLAYLIST[faixa];
+  audio =
+    new Audio();
+
+
+  audio.preload =
+    "none";
+
+
+  audio.volume =
+    0.65;
+
+
+  audio.src =
+    PLAYLIST[faixa];
+
 
   audio.addEventListener(
     "ended",
     function(){
 
-      faixa=
-        (faixa+1)%
+      faixa =
+        (faixa + 1) %
         PLAYLIST.length;
 
-      audio.src=
+
+      audio.src =
         PLAYLIST[faixa];
+
 
       audio.play().catch(
         function(){}
@@ -1536,22 +2334,28 @@ function prepararAudio(){
     }
   );
 
+
   audio.addEventListener(
     "error",
     function(){
 
-      if(PLAYLIST.length<2){
+      if(
+        PLAYLIST.length < 2
+      ){
 
         return pausar();
 
       }
 
-      faixa=
-        (faixa+1)%
+
+      faixa =
+        (faixa + 1) %
         PLAYLIST.length;
 
-      audio.src=
+
+      audio.src =
         PLAYLIST[faixa];
+
 
       audio.play().catch(
         function(){
@@ -1566,9 +2370,15 @@ function prepararAudio(){
 
 }
 
+
+/* =========================
+   TOCAR
+   ========================= */
+
 function tocar(){
 
   prepararAudio();
+
 
   audio.play().then(
     function(){
@@ -1577,15 +2387,18 @@ function tocar(){
         "tocando"
       );
 
+
       botaoSom.setAttribute(
         "aria-pressed",
         "true"
       );
 
+
       botaoSom.setAttribute(
         "aria-label",
         "Pausar música"
       );
+
 
       aviso.classList.remove(
         "visivel"
@@ -1602,6 +2415,11 @@ function tocar(){
 
 }
 
+
+/* =========================
+   PAUSAR
+   ========================= */
+
 function pausar(){
 
   if(audio){
@@ -1610,14 +2428,17 @@ function pausar(){
 
   }
 
+
   botaoSom.classList.remove(
     "tocando"
   );
+
 
   botaoSom.setAttribute(
     "aria-pressed",
     "false"
   );
+
 
   botaoSom.setAttribute(
     "aria-label",
@@ -1626,11 +2447,19 @@ function pausar(){
 
 }
 
+
+/* =========================
+   BOTÃO DE SOM
+   ========================= */
+
 botaoSom.addEventListener(
   "click",
   function(){
 
-    if(audio && !audio.paused){
+    if(
+      audio &&
+      !audio.paused
+    ){
 
       pausar();
 
@@ -1643,37 +2472,58 @@ botaoSom.addEventListener(
   }
 );
 
-setTimeout(function(){
 
-  if(
-    !botaoSom.classList.contains(
-      "visivel"
-    )
-  ){
+/* =========================
+   AVISO DE SOM
+   ========================= */
 
-    return;
+setTimeout(
+  function(){
 
-  }
+    if(
+      !botaoSom.classList.contains(
+        "visivel"
+      )
+    ){
 
-  if(audio && !audio.paused){
+      return;
 
-    return;
+    }
 
-  }
 
-  aviso.classList.add(
-    "visivel"
-  );
+    if(
+      audio &&
+      !audio.paused
+    ){
 
-  setTimeout(function(){
+      return;
 
-    aviso.classList.remove(
+    }
+
+
+    aviso.classList.add(
       "visivel"
     );
 
-  },4500);
 
-},6000);
+    setTimeout(
+      function(){
 
-</script></body>
+        aviso.classList.remove(
+          "visivel"
+        );
+
+      },
+      4500
+    );
+
+  },
+  6000
+);
+
+
+</script>
+
+</body>
 </html>
+```
