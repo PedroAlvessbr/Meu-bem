@@ -52,8 +52,7 @@ body::before{
     radial-gradient(100% 50% at 50% 100%,rgba(23,22,20,.05),transparent 60%);
 }
 
-img,
-video{
+img{
   max-width:100%;
   display:block;
 }
@@ -369,12 +368,10 @@ section{
 
 .mem{
   position:relative;
-  z-index:0;
   max-width:var(--larg);
   margin:0 auto;
   padding:2.6rem 0;
   border-top:1px solid var(--linha);
-  overflow:visible;
 }
 
 .mem:first-child{
@@ -434,55 +431,73 @@ section{
 
 .media{
   position:relative;
-  isolation:isolate;
-  display:block;
   width:100%;
-  height:auto;
   margin:1.2rem 0 1.3rem;
   border-radius:2px;
   overflow:hidden;
   background:var(--papel-fundo);
   box-shadow:var(--sombra);
-  z-index:0;
 }
 
 .media img{
-  position:relative;
-  z-index:1;
   display:block;
+  position:relative;
   width:100%;
-  height:auto;
   max-width:100%;
+  height:auto;
   object-fit:contain;
 }
 
 /* =========================
-   VÍDEO
+   VÍDEO FINAL
    ========================= */
+
+/*
+   O vídeo possui uma CAIXA COM ALTURA FIXA.
+
+   O MP4 nunca define a altura do layout.
+   Ele é apenas encaixado dentro dessa caixa.
+
+   Mobile: 280px
+   Desktop: 360px
+*/
 
 .video-final{
   position:relative;
-  isolation:isolate;
-  display:block;
   width:100%;
-  height:auto;
-  margin:2.5rem 0 0;
+  height:280px;
+  min-height:280px;
+  max-height:280px;
+
+  margin:0 0 3.5rem;
+
   border-radius:2px;
   overflow:hidden;
+
   background:var(--papel-fundo);
   box-shadow:var(--sombra);
-  z-index:0;
+
+  isolation:isolate;
 }
 
 .video-final video{
-  position:relative;
-  z-index:1;
   display:block;
+
+  position:absolute;
+  inset:0;
+
   width:100%;
-  height:auto;
-  max-width:100%;
+  height:100%;
+
+  max-width:none;
+
   object-fit:contain;
   object-position:center;
+
+  margin:0;
+  padding:0;
+
+  z-index:1;
 }
 
 /* =========================
@@ -490,28 +505,45 @@ section{
    ========================= */
 
 .final{
-  min-height:88svh;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
   width:100%;
   max-width:var(--larg);
   margin:0 auto;
+
+  min-height:88svh;
+
+  display:block;
+
   padding:6rem 1.6rem calc(7rem + var(--safe-b));
 }
 
+/*
+   O 30 possui seu próprio espaço.
+   Ele não divide a mesma área do vídeo.
+*/
+
 .final .trinta{
+  display:block;
+
+  position:relative;
+  z-index:2;
+
   font-size:clamp(5rem,30vw,9rem);
   font-weight:300;
   line-height:.85;
-  margin:3rem 0 0;
+
+  margin:0 0 2rem;
+
   letter-spacing:-.04em;
 }
 
 .final .regua{
+  display:block;
+
   width:3.5rem;
   height:1px;
+
   background:var(--tinta);
+
   margin:2rem 0;
 }
 
@@ -536,19 +568,27 @@ section{
   z-index:30;
   left:1.1rem;
   bottom:calc(1.1rem + var(--safe-b));
+
   width:2.9rem;
   height:2.9rem;
+
   border-radius:50%;
   border:1px solid var(--linha);
+
   background:rgba(245,242,236,.88);
+
   backdrop-filter:blur(8px);
   -webkit-backdrop-filter:blur(8px);
+
   display:none;
   align-items:center;
   justify-content:center;
+
   gap:2px;
+
   cursor:pointer;
   padding:0;
+
   box-shadow:0 8px 20px -14px rgba(23,22,20,.6);
 }
 
@@ -586,13 +626,19 @@ section{
 #som-aviso{
   position:fixed;
   z-index:30;
+
   left:4.5rem;
   bottom:calc(1.55rem + var(--safe-b));
+
   font-family:"Caveat",cursive;
   font-size:1.2rem;
+
   color:var(--cinza);
+
   opacity:0;
+
   transition:opacity .6s ease;
+
   pointer-events:none;
 }
 
@@ -612,10 +658,14 @@ section{
 .surge.dentro{
   opacity:1;
   transform:none;
-  transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.3,1);
+
+  transition:
+    opacity 1s ease,
+    transform 1s cubic-bezier(.2,.7,.3,1);
 }
 
 @media (prefers-reduced-motion:reduce){
+
   .surge,
   .surge.dentro{
     opacity:1;
@@ -634,6 +684,7 @@ section{
    ========================= */
 
 @media (min-width:900px){
+
   body{
     font-size:1.125rem;
   }
@@ -647,11 +698,23 @@ section{
     padding-left:0;
     padding-right:0;
   }
+
+  .video-final{
+    height:360px;
+    min-height:360px;
+    max-height:360px;
+  }
 }
-</style></head><body><div id="portao">
-  <div class="portao-caixa"><div class="portao-cabecalho">
-  <p>Antes de entrar, uma pergunta.</p>
-  <h1 class="portao-pergunta">Qual é a senha?</h1>
+</style></head><body><div id="portao">  <div class="portao-caixa"><div class="portao-cabecalho">
+
+  <p>
+    Antes de entrar, uma pergunta.
+  </p>
+
+  <h1 class="portao-pergunta">
+    Qual é a senha?
+  </h1>
+
 </div>
 
 <form class="campo" id="form-senha" autocomplete="off">
@@ -667,16 +730,21 @@ section{
     spellcheck="false"
   >
 
-  <button type="submit">entrar</button>
+  <button type="submit">
+    entrar
+  </button>
 
 </form>
 
 <div id="dicas"></div>
 
-  </div>
-</div><main id="site" hidden>  <header class="capa"><h1>Meu bem</h1>
+  </div></div><main id="site" hidden>  <header class="capa"><h1>
+  Meu bem
+</h1>
 
-<p class="idade">30 anos</p>
+<p class="idade">
+  30 anos
+</p>
 
 <div class="regua"></div>
 
@@ -736,7 +804,9 @@ section{
     <span class="mem-num">01</span>
   </div>
 
-  <h3>Welcome to the Jungle</h3>
+  <h3>
+    Welcome to the Jungle
+  </h3>
 
   <p>
     Não canso de lembrar da felicidade da Amandinha quando começou a tocar Welcome to the Jungle aquele dia.
@@ -758,7 +828,9 @@ section{
     <span class="mem-num">02</span>
   </div>
 
-  <h3>O sorriso no meu quarto</h3>
+  <h3>
+    O sorriso no meu quarto
+  </h3>
 
   <p>
     Ou do sorriso quando te pedi em namoro no meu quarto.
@@ -772,7 +844,9 @@ section{
     <span class="mem-num">03</span>
   </div>
 
-  <h3>St. John's</h3>
+  <h3>
+    St. John's
+  </h3>
 
   <p>
     De você extremamente sociável aquele dia no St. John's.
@@ -790,7 +864,9 @@ section{
     <span class="mem-num">04</span>
   </div>
 
-  <h3>Nosso primeiro cochilo em família</h3>
+  <h3>
+    Nosso primeiro cochilo em família
+  </h3>
 
   <p>
     Da paz que senti naquele nosso primeiro cochilo em família no domingo à tarde aqui em São Paulo.
@@ -808,7 +884,9 @@ section{
     <span class="mem-num">05</span>
   </div>
 
-  <h3>A lista de destinos</h3>
+  <h3>
+    A lista de destinos
+  </h3>
 
   <p>
     Daquela lista de destinos que você anotou para nós fazermos como um casal antes de sabermos que teríamos a Godinha.
@@ -826,7 +904,9 @@ section{
     <span class="mem-num">06</span>
   </div>
 
-  <h3>Bacate Day</h3>
+  <h3>
+    Bacate Day
+  </h3>
 
   <div class="media">
     <img src="fotos/foto-06.jpg" alt="" loading="lazy">
@@ -844,7 +924,9 @@ section{
     <span class="mem-num">07</span>
   </div>
 
-  <h3>Também fui emo</h3>
+  <h3>
+    Também fui emo
+  </h3>
 
   <p>
     Da também fui emo, seguida de um BK que não deu nem pra tapar o buraco do dente.
@@ -862,7 +944,9 @@ section{
     <span class="mem-num">08</span>
   </div>
 
-  <h3>O pote de Danone</h3>
+  <h3>
+    O pote de Danone
+  </h3>
 
   <p>
     Do pote de Danone com um cheiro peculiar.
@@ -876,7 +960,9 @@ section{
     <span class="mem-num">09</span>
   </div>
 
-  <h3>Domingos BEEEEEM aproveitados</h3>
+  <h3>
+    Domingos BEEEEEM aproveitados
+  </h3>
 
   <p>
     Dos domingos BEEEEEM aproveitados em casa.
@@ -894,7 +980,9 @@ section{
     <span class="mem-num">10</span>
   </div>
 
-  <h3>O escondidinho na casa do véi</h3>
+  <h3>
+    O escondidinho na casa do véi
+  </h3>
 
   <p>
     Do nosso escondidinho na casa do véi.
@@ -908,7 +996,9 @@ section{
     <span class="mem-num">11</span>
   </div>
 
-  <h3>Bonnie e Cate</h3>
+  <h3>
+    Bonnie e Cate
+  </h3>
 
   <p>
     De Bonnie e Cate.
@@ -930,7 +1020,9 @@ section{
     <span class="mem-num">12</span>
   </div>
 
-  <h3>Hambúrguer artesanal acompanhado de cookies</h3>
+  <h3>
+    Hambúrguer artesanal acompanhado de cookies
+  </h3>
 
   <p>
     Do hambúrguer artesanal acompanhado de cookies.
@@ -944,7 +1036,9 @@ section{
     <span class="mem-num">13</span>
   </div>
 
-  <h3>Aquela cerveja que só a gente gosta</h3>
+  <h3>
+    Aquela cerveja que só a gente gosta
+  </h3>
 
   <p>
     Daquela cerveja que só a gente gosta e que eu tô louco pra poder encher a cara com você de novo.
@@ -958,7 +1052,9 @@ section{
     <span class="mem-num">14</span>
   </div>
 
-  <h3>Viagens de van</h3>
+  <h3>
+    Viagens de van
+  </h3>
 
   <p>
     Das viagens de van, sabendo que, por mais cansativas que fossem, me deixavam animado porque eu sabia que iria te ver de novo.
@@ -976,7 +1072,9 @@ section{
     <span class="mem-num">15</span>
   </div>
 
-  <h3>As minhas pausas pro café no trabalho</h3>
+  <h3>
+    As minhas pausas pro café no trabalho
+  </h3>
 
   <p>
     Das minhas pausas pro café no trabalho, onde tudo que eu fazia era sair correndo pra falar com você.
@@ -990,7 +1088,9 @@ section{
     <span class="mem-num">16</span>
   </div>
 
-  <h3>Açaís de domingo</h3>
+  <h3>
+    Açaís de domingo
+  </h3>
 
   <p>
     Dos açaís de domingo com gostinho de despedida e choro embargado.
@@ -1008,7 +1108,9 @@ section{
     <span class="mem-num">17</span>
   </div>
 
-  <h3>O rolê no Cannil</h3>
+  <h3>
+    O rolê no Cannil
+  </h3>
 
   <p>
     Do rolê no Cannil, junto com bebidas gliteres e aquela sensação de aventura.
@@ -1026,7 +1128,9 @@ section{
     <span class="mem-num">18</span>
   </div>
 
-  <h3>Meu amor de carnaval</h3>
+  <h3>
+    Meu amor de carnaval
+  </h3>
 
   <p>
     Do meu amor de carnaval, que eu só não sabia que seria o amor da minha vida.
@@ -1076,6 +1180,7 @@ section{
 </button><div id="som-aviso">
   toca aqui
 </div><script>
+
 const SENHAS_ACEITAS = [
   "3a1b80321eb8c581e987187bd14a7f7894d8354b23516403ca8d71fde92c2ccf",
   "a2d8fac4af9aba3f662ddf25a7c82bec67d2d0ce31eb7fc28c7b02cff63a5d39",
@@ -1111,39 +1216,63 @@ const caixaDicas=document.getElementById("dicas");
 let erros=0;
 
 function limpar(v){
+
   return (v || "")
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g,"")
     .replace(/[^a-z0-9]/g,"");
+
 }
 
 async function hashDaSenha(texto){
-  const dados=new TextEncoder().encode(limpar(texto));
-  const buf=await crypto.subtle.digest("SHA-256",dados);
 
-  return Array.from(new Uint8Array(buf))
-    .map(function(b){
-      return b.toString(16).padStart(2,"0");
-    })
-    .join("");
+  const dados=new TextEncoder().encode(
+    limpar(texto)
+  );
+
+  const buf=await crypto.subtle.digest(
+    "SHA-256",
+    dados
+  );
+
+  return Array.from(
+    new Uint8Array(buf)
+  )
+  .map(function(b){
+    return b.toString(16).padStart(2,"0");
+  })
+  .join("");
+
 }
 
 window.hashDaSenha=hashDaSenha;
 
 form.addEventListener("submit",async function(e){
+
   e.preventDefault();
 
   if(!limpar(campo.value)) return;
 
-  const tentativa=await hashDaSenha(campo.value);
+  const tentativa=await hashDaSenha(
+    campo.value
+  );
 
   if(SENHAS_ACEITAS.indexOf(tentativa)!==-1){
+
     abrir();
+
     return;
+
   }
 
-  const item=DICAS[Math.min(erros,DICAS.length-1)];
+  const item=DICAS[
+    Math.min(
+      erros,
+      DICAS.length-1
+    )
+  ];
+
   erros++;
 
   const el=document.createElement("div");
@@ -1151,8 +1280,15 @@ form.addEventListener("submit",async function(e){
   el.className="dica";
 
   el.innerHTML=
-    '<p class="erro">'+item.erro+'</p>'+
-    '<p><span class="rotulo-dica">dica:</span><strong>'+item.dica+'</strong></p>';
+    '<p class="erro">'+
+    item.erro+
+    '</p>'+
+    '<p>'+
+    '<span class="rotulo-dica">dica:</span>'+
+    '<strong>'+
+    item.dica+
+    '</strong>'+
+    '</p>';
 
   caixaDicas.appendChild(el);
 
@@ -1169,6 +1305,7 @@ form.addEventListener("submit",async function(e){
     behavior:"smooth",
     block:"nearest"
   });
+
 });
 
 function abrir(){
@@ -1179,7 +1316,12 @@ function abrir(){
     '<p class="acertou">É você. Pode entrar.</p>';
 
   try{
-    sessionStorage.setItem("meubem","1");
+
+    sessionStorage.setItem(
+      "meubem",
+      "1"
+    );
+
   }catch(e){}
 
   setTimeout(function(){
@@ -1188,26 +1330,37 @@ function abrir(){
 
     portao.classList.add("aberto");
 
-    document.getElementById("som").classList.add("visivel");
+    document
+      .getElementById("som")
+      .classList
+      .add("visivel");
 
     iniciarAnimacoes();
 
     setTimeout(function(){
+
       portao.remove();
+
     },1000);
 
   },1500);
+
 }
 
 try{
 
-  if(sessionStorage.getItem("meubem")==="1"){
+  if(
+    sessionStorage.getItem("meubem")==="1"
+  ){
 
     site.hidden=false;
 
     portao.remove();
 
-    document.getElementById("som").classList.add("visivel");
+    document
+      .getElementById("som")
+      .classList
+      .add("visivel");
 
   }
 
@@ -1215,43 +1368,60 @@ try{
 
 function iniciarAnimacoes(){
 
-  const alvos=document.querySelectorAll(".surge");
+  const alvos=
+    document.querySelectorAll(".surge");
 
   if(!("IntersectionObserver" in window)){
 
     alvos.forEach(function(el){
+
       el.classList.add("dentro");
+
     });
 
     return;
+
   }
 
-  const obs=new IntersectionObserver(function(entradas){
+  const obs=
+    new IntersectionObserver(
+      function(entradas){
 
-    entradas.forEach(function(en){
+        entradas.forEach(function(en){
 
-      if(en.isIntersecting){
+          if(en.isIntersecting){
 
-        en.target.classList.add("dentro");
+            en.target.classList.add(
+              "dentro"
+            );
 
-        obs.unobserve(en.target);
+            obs.unobserve(
+              en.target
+            );
 
+          }
+
+        });
+
+      },
+      {
+        rootMargin:"0px 0px -12% 0px",
+        threshold:0.05
       }
-
-    });
-
-  },{
-    rootMargin:"0px 0px -12% 0px",
-    threshold:0.05
-  });
+    );
 
   alvos.forEach(function(el){
+
     obs.observe(el);
+
   });
+
 }
 
 if(!site.hidden){
+
   iniciarAnimacoes();
+
 }
 
 /* =========================
@@ -1263,8 +1433,11 @@ const PLAYLIST=[
   "music/caramel.mp3"
 ];
 
-const botaoSom=document.getElementById("som");
-const aviso=document.getElementById("som-aviso");
+const botaoSom=
+  document.getElementById("som");
+
+const aviso=
+  document.getElementById("som-aviso");
 
 let audio=null;
 let faixa=0;
@@ -1279,64 +1452,101 @@ function prepararAudio(){
   audio.volume=0.65;
   audio.src=PLAYLIST[faixa];
 
-  audio.addEventListener("ended",function(){
+  audio.addEventListener(
+    "ended",
+    function(){
 
-    faixa=(faixa+1)%PLAYLIST.length;
+      faixa=
+        (faixa+1)%
+        PLAYLIST.length;
 
-    audio.src=PLAYLIST[faixa];
+      audio.src=
+        PLAYLIST[faixa];
 
-    audio.play().catch(function(){});
+      audio.play().catch(
+        function(){}
+      );
 
-  });
-
-  audio.addEventListener("error",function(){
-
-    if(PLAYLIST.length<2){
-      return pausar();
     }
+  );
 
-    faixa=(faixa+1)%PLAYLIST.length;
+  audio.addEventListener(
+    "error",
+    function(){
 
-    audio.src=PLAYLIST[faixa];
+      if(PLAYLIST.length<2){
 
-    audio.play().catch(function(){
-      pausar();
-    });
+        return pausar();
 
-  });
+      }
+
+      faixa=
+        (faixa+1)%
+        PLAYLIST.length;
+
+      audio.src=
+        PLAYLIST[faixa];
+
+      audio.play().catch(
+        function(){
+
+          pausar();
+
+        }
+      );
+
+    }
+  );
+
 }
 
 function tocar(){
 
   prepararAudio();
 
-  audio.play().then(function(){
+  audio.play().then(
+    function(){
 
-    botaoSom.classList.add("tocando");
+      botaoSom.classList.add(
+        "tocando"
+      );
 
-    botaoSom.setAttribute("aria-pressed","true");
+      botaoSom.setAttribute(
+        "aria-pressed",
+        "true"
+      );
 
-    botaoSom.setAttribute(
-      "aria-label",
-      "Pausar música"
-    );
+      botaoSom.setAttribute(
+        "aria-label",
+        "Pausar música"
+      );
 
-    aviso.classList.remove("visivel");
+      aviso.classList.remove(
+        "visivel"
+      );
 
-  }).catch(function(){
+    }
+  ).catch(
+    function(){
 
-    pausar();
+      pausar();
 
-  });
+    }
+  );
+
 }
 
 function pausar(){
 
   if(audio){
+
     audio.pause();
+
   }
 
-  botaoSom.classList.remove("tocando");
+  botaoSom.classList.remove(
+    "tocando"
+  );
 
   botaoSom.setAttribute(
     "aria-pressed",
@@ -1347,36 +1557,57 @@ function pausar(){
     "aria-label",
     "Tocar música"
   );
+
 }
 
-botaoSom.addEventListener("click",function(){
+botaoSom.addEventListener(
+  "click",
+  function(){
 
-  if(audio && !audio.paused){
+    if(audio && !audio.paused){
 
-    pausar();
+      pausar();
 
-  }else{
+    }else{
 
-    tocar();
+      tocar();
+
+    }
 
   }
-
-});
+);
 
 setTimeout(function(){
 
-  if(!botaoSom.classList.contains("visivel")) return;
+  if(
+    !botaoSom.classList.contains(
+      "visivel"
+    )
+  ){
 
-  if(audio && !audio.paused) return;
+    return;
 
-  aviso.classList.add("visivel");
+  }
+
+  if(audio && !audio.paused){
+
+    return;
+
+  }
+
+  aviso.classList.add(
+    "visivel"
+  );
 
   setTimeout(function(){
 
-    aviso.classList.remove("visivel");
+    aviso.classList.remove(
+      "visivel"
+    );
 
   },4500);
 
 },6000);
+
 </script></body>
 </html>
