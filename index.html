@@ -69,7 +69,7 @@ video{
 }
 
 /* =========================
-   PORTÃO / SENHA
+   PORTÃO
    ========================= */
 
 #portao{
@@ -341,7 +341,7 @@ section{
 }
 
 /* =========================
-   SEÇÕES
+   MEMÓRIAS
    ========================= */
 
 .abre-secao{
@@ -435,7 +435,9 @@ section{
 .media{
   position:relative;
   isolation:isolate;
+  display:block;
   width:100%;
+  height:auto;
   margin:1.2rem 0 1.3rem;
   border-radius:2px;
   overflow:hidden;
@@ -447,55 +449,24 @@ section{
 .media img{
   position:relative;
   z-index:1;
+  display:block;
   width:100%;
   height:auto;
   max-width:100%;
-  display:block;
   object-fit:contain;
 }
 
-.vazio{
-  position:relative;
-  width:100%;
-  aspect-ratio:4/5;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border:1px solid var(--linha);
-  background:
-    repeating-linear-gradient(
-      -45deg,
-      transparent 0 14px,
-      rgba(138,133,123,.07) 14px 15px
-    );
-}
-
-.vazio--largo{
-  aspect-ratio:3/2;
-}
-
-.vazio span{
-  font-family:"Caveat",cursive;
-  font-size:1.3rem;
-  color:var(--cinza);
-}
-
-.legenda{
-  font-size:.92rem;
-  font-style:italic;
-  color:var(--cinza);
-  margin:-.5rem 0 1.1rem;
-}
-
 /* =========================
-   VÍDEO FINAL
+   VÍDEO
    ========================= */
 
 .video-final{
   position:relative;
   isolation:isolate;
+  display:block;
   width:100%;
-  margin-top:2.5rem;
+  height:auto;
+  margin:2.5rem 0 0;
   border-radius:2px;
   overflow:hidden;
   background:var(--papel-fundo);
@@ -511,6 +482,7 @@ section{
   height:auto;
   max-width:100%;
   object-fit:contain;
+  object-position:center;
 }
 
 /* =========================
@@ -521,17 +493,18 @@ section{
   min-height:88svh;
   display:flex;
   flex-direction:column;
-  justify-content:center;
-  padding:6rem 1.6rem calc(7rem + var(--safe-b));
+  justify-content:flex-start;
+  width:100%;
   max-width:var(--larg);
   margin:0 auto;
+  padding:6rem 1.6rem calc(7rem + var(--safe-b));
 }
 
 .final .trinta{
   font-size:clamp(5rem,30vw,9rem);
   font-weight:300;
   line-height:.85;
-  margin:0;
+  margin:3rem 0 0;
   letter-spacing:-.04em;
 }
 
@@ -555,7 +528,7 @@ section{
 }
 
 /* =========================
-   BOTÃO DE SOM
+   SOM
    ========================= */
 
 #som{
@@ -676,11 +649,13 @@ section{
   }
 }
 </style></head><body><div id="portao">
-  <div class="portao-caixa">
-    <div class="portao-cabecalho">
-      <p>Antes de entrar, uma pergunta.</p>
-      <h1 class="portao-pergunta">Qual é a senha?</h1>
-    </div><form class="campo" id="form-senha" autocomplete="off">
+  <div class="portao-caixa"><div class="portao-cabecalho">
+  <p>Antes de entrar, uma pergunta.</p>
+  <h1 class="portao-pergunta">Qual é a senha?</h1>
+</div>
+
+<form class="campo" id="form-senha" autocomplete="off">
+
   <input
     id="senha"
     type="text"
@@ -691,105 +666,162 @@ section{
     autocorrect="off"
     spellcheck="false"
   >
+
   <button type="submit">entrar</button>
+
 </form>
 
 <div id="dicas"></div>
 
   </div>
-</div><main id="site" hidden>  <header class="capa">
-    <h1>Meu bem</h1>
-    <p class="idade">30 anos</p>
-    <div class="regua"></div>
-    <p class="sub">Uma pequena coleção das coisas que eu lembro quando penso em você.</p>
-    <div class="desce"><span></span> deslize</div>
-  </header>  <section class="carta">
-    <div class="bloco">  <p class="surge">E então chegaram os 30 anos do amor da minha vida.</p>
+</div><main id="site" hidden>  <header class="capa"><h1>Meu bem</h1>
 
-  <p class="surge">Pois é. Os 20 ficaram para trás. E, com eles, levaram uma grande fase da sua vida. E eu tive muita sorte de encontrar você bem no finalzinho dela, só pra virarmos tudo de cabeça pra baixo de uma vez.</p>
+<p class="idade">30 anos</p>
 
-  <p class="surge">Sinceramente, eu não consigo nem imaginar tudo que você passou até chegar aqui. Quantas incertezas, risadas, estresses, calmarias, alegrias e tristezas ficaram pelo caminho. Quantas pessoas você quis esganar e não esganou, quantos corpos você já enfiou naquela mala enorme em cima do guarda-roupa e desovou por aí 🧐.</p>
+<div class="regua"></div>
 
-  <p class="surge">Todos os momentos, por mais positivos ou negativos que tenham sido, moldaram a mulher incrível que você é hoje. Não canso de lembrar da felicidade da Amandinha quando começou a tocar Welcome to the Jungle aquele dia. Ou do sorriso quando te pedi em namoro no meu quarto. De você extremamente sociável aquele dia no St. John's. Da paz que senti naquele nosso primeiro cochilo em família no domingo à tarde aqui em São Paulo. Daquela lista de destinos que você anotou para nós fazermos como um casal antes de sabermos que teríamos a Godinha. Da também fui emo, seguida de um BK que não deu nem pra tapar o buraco do dente. Do pote de Danone com um cheiro peculiar. Dos domingos BEEEEEM aproveitados em casa. Do nosso escondidinho na casa do véi. De Bonnie e Cate. Do hambúrguer artesanal acompanhado de cookies. Daquela cerveja que só a gente gosta e que eu tô louco pra poder encher a cara com você de novo. Das viagens de van, sabendo que, por mais cansativas que fossem, me deixavam animado porque eu sabia que iria te ver de novo. Das minhas pausas pro café no trabalho, onde tudo que eu fazia era sair correndo pra falar com você. Dos açaís de domingo com gostinho de despedida e choro embargado.</p>
+<p class="sub">
+  Uma pequena coleção das coisas que eu lembro quando penso em você.
+</p>
 
-  <p class="surge">Do rolê no Cannil, junto com bebidas gliteres e aquela sensação de aventura. Do meu amor de carnaval, que eu só não sabia que seria o amor da minha vida.</p>
+<div class="desce">
+  <span></span>
+  deslize
+</div>
 
-  <p class="nota surge">A parte mais legal dos seus 30 anos<em>(a parte que eu estou)</em></p>
+  </header>  <section class="carta"><div class="bloco">
+
+  <p class="surge">
+    E então chegaram os 30 anos do amor da minha vida.
+  </p>
+
+  <p class="surge">
+    Pois é. Os 20 ficaram para trás. E, com eles, levaram uma grande fase da sua vida. E eu tive muita sorte de encontrar você bem no finalzinho dela, só pra virarmos tudo de cabeça pra baixo de uma vez.
+  </p>
+
+  <p class="surge">
+    Sinceramente, eu não consigo nem imaginar tudo que você passou até chegar aqui. Quantas incertezas, risadas, estresses, calmarias, alegrias e tristezas ficaram pelo caminho. Quantas pessoas você quis esganar e não esganou, quantos corpos você já enfiou naquela mala enorme em cima do guarda-roupa e desovou por aí 🧐.
+  </p>
+
+  <p class="surge">
+    Todos os momentos, por mais positivos ou negativos que tenham sido, moldaram a mulher incrível que você é hoje. Não canso de lembrar da felicidade da Amandinha quando começou a tocar Welcome to the Jungle aquele dia. Ou do sorriso quando te pedi em namoro no meu quarto. De você extremamente sociável aquele dia no St. John's. Da paz que senti naquele nosso primeiro cochilo em família no domingo à tarde aqui em São Paulo. Daquela lista de destinos que você anotou para nós fazermos como um casal antes de sabermos que teríamos a Godinha. Da também fui emo, seguida de um BK que não deu nem pra tapar o buraco do dente. Do pote de Danone com um cheiro peculiar. Dos domingos BEEEEEM aproveitados em casa. Do nosso escondidinho na casa do véi. De Bonnie e Cate. Do hambúrguer artesanal acompanhado de cookies. Daquela cerveja que só a gente gosta e que eu tô louco pra poder encher a cara com você de novo. Das viagens de van, sabendo que, por mais cansativas que fossem, me deixavam animado porque eu sabia que iria te ver de novo. Das minhas pausas pro café no trabalho, onde tudo que eu fazia era sair correndo pra falar com você. Dos açaís de domingo com gostinho de despedida e choro embargado.
+  </p>
+
+  <p class="surge">
+    Do rolê no Cannil, junto com bebidas gliteres e aquela sensação de aventura. Do meu amor de carnaval, que eu só não sabia que seria o amor da minha vida.
+  </p>
+
+  <p class="nota surge">
+    A parte mais legal dos seus 30 anos
+    <em>(a parte que eu estou)</em>
+  </p>
 
 </div>
 
-  </section>  <section>
-    <div class="abre-secao surge">
-      <h2>Eu não conheço tudo que aconteceu antes de mim.</h2>
-      <p>Mas conheço estas aqui. Em nenhuma ordem específica.</p>
-    </div>
+  </section>  <section><div class="abre-secao surge">
+
+  <h2>
+    Eu não conheço tudo que aconteceu antes de mim.
+  </h2>
+
+  <p>
+    Mas conheço estas aqui. Em nenhuma ordem específica.
+  </p>
+
+</div>
+
   </section>  <section class="memorias"><article class="mem surge">
+
   <div class="mem-topo">
     <span class="mem-num">01</span>
   </div>
 
   <h3>Welcome to the Jungle</h3>
 
-  <p>Não canso de lembrar da felicidade da Amandinha quando começou a tocar Welcome to the Jungle aquele dia.</p>
+  <p>
+    Não canso de lembrar da felicidade da Amandinha quando começou a tocar Welcome to the Jungle aquele dia.
+  </p>
 
   <div class="media">
     <img src="fotos/foto-01.jpg" alt="" loading="lazy">
   </div>
 
-  <p class="rabisco">a mulher virou outra pessoa em dois segundos</p>
+  <p class="rabisco">
+    a mulher virou outra pessoa em dois segundos
+  </p>
+
 </article>
 
 <article class="mem mem--sussurro surge">
+
   <div class="mem-topo">
     <span class="mem-num">02</span>
   </div>
 
   <h3>O sorriso no meu quarto</h3>
 
-  <p>Ou do sorriso quando te pedi em namoro no meu quarto.</p>
+  <p>
+    Ou do sorriso quando te pedi em namoro no meu quarto.
+  </p>
+
 </article>
 
 <article class="mem surge">
+
   <div class="mem-topo">
     <span class="mem-num">03</span>
   </div>
 
   <h3>St. John's</h3>
 
-  <p>De você extremamente sociável aquele dia no St. John's.</p>
+  <p>
+    De você extremamente sociável aquele dia no St. John's.
+  </p>
 
   <div class="media">
     <img src="fotos/foto-03.jpg" alt="" loading="lazy">
   </div>
+
 </article>
 
 <article class="mem surge">
+
   <div class="mem-topo">
     <span class="mem-num">04</span>
   </div>
 
   <h3>Nosso primeiro cochilo em família</h3>
 
-  <p>Da paz que senti naquele nosso primeiro cochilo em família no domingo à tarde aqui em São Paulo.</p>
+  <p>
+    Da paz que senti naquele nosso primeiro cochilo em família no domingo à tarde aqui em São Paulo.
+  </p>
 
   <div class="media">
     <img src="fotos/foto-04.jpg" alt="" loading="lazy">
   </div>
+
 </article>
 
 <article class="mem mem--sussurro surge">
+
   <div class="mem-topo">
     <span class="mem-num">05</span>
   </div>
 
   <h3>A lista de destinos</h3>
 
-  <p>Daquela lista de destinos que você anotou para nós fazermos como um casal antes de sabermos que teríamos a Godinha.</p>
+  <p>
+    Daquela lista de destinos que você anotou para nós fazermos como um casal antes de sabermos que teríamos a Godinha.
+  </p>
 
-  <p class="rabisco">a lista continua de pé, só mudou o tamanho da mala</p>
+  <p class="rabisco">
+    a lista continua de pé, só mudou o tamanho da mala
+  </p>
+
 </article>
 
 <article class="mem surge">
+
   <div class="mem-topo">
     <span class="mem-num">06</span>
   </div>
@@ -800,184 +832,250 @@ section{
     <img src="fotos/foto-06.jpg" alt="" loading="lazy">
   </div>
 
-  <p>Da também fui emo, seguida de um BK que não deu nem pra tapar o buraco do dente.</p>
+  <p>
+    Da também fui emo, seguida de um BK que não deu nem pra tapar o buraco do dente.
+  </p>
+
 </article>
 
 <article class="mem surge">
+
   <div class="mem-topo">
     <span class="mem-num">07</span>
   </div>
 
   <h3>Também fui emo</h3>
 
-  <p>Da também fui emo, seguida de um BK que não deu nem pra tapar o buraco do dente.</p>
+  <p>
+    Da também fui emo, seguida de um BK que não deu nem pra tapar o buraco do dente.
+  </p>
 
   <div class="media">
     <img src="fotos/foto-07.jpg" alt="" loading="lazy">
   </div>
+
 </article>
 
 <article class="mem mem--sussurro surge">
+
   <div class="mem-topo">
     <span class="mem-num">08</span>
   </div>
 
   <h3>O pote de Danone</h3>
 
-  <p>Do pote de Danone com um cheiro peculiar.</p>
+  <p>
+    Do pote de Danone com um cheiro peculiar.
+  </p>
+
 </article>
 
 <article class="mem surge">
+
   <div class="mem-topo">
     <span class="mem-num">09</span>
   </div>
 
   <h3>Domingos BEEEEEM aproveitados</h3>
 
-  <p>Dos domingos BEEEEEM aproveitados em casa.</p>
+  <p>
+    Dos domingos BEEEEEM aproveitados em casa.
+  </p>
 
   <div class="media">
     <img src="fotos/foto-09.jpg" alt="" loading="lazy">
   </div>
+
 </article>
 
 <article class="mem mem--sussurro surge">
+
   <div class="mem-topo">
     <span class="mem-num">10</span>
   </div>
 
   <h3>O escondidinho na casa do véi</h3>
 
-  <p>Do nosso escondidinho na casa do véi.</p>
+  <p>
+    Do nosso escondidinho na casa do véi.
+  </p>
+
 </article>
 
 <article class="mem surge">
+
   <div class="mem-topo">
     <span class="mem-num">11</span>
   </div>
 
   <h3>Bonnie e Cate</h3>
 
-  <p>De Bonnie e Cate.</p>
+  <p>
+    De Bonnie e Cate.
+  </p>
 
   <div class="media">
     <img src="fotos/foto-11.jpg" alt="" loading="lazy">
   </div>
 
-  <p class="rabisco">as duas mandando mais em você do que eu</p>
+  <p class="rabisco">
+    as duas mandando mais em você do que eu
+  </p>
+
 </article>
 
 <article class="mem mem--sussurro surge">
+
   <div class="mem-topo">
     <span class="mem-num">12</span>
   </div>
 
   <h3>Hambúrguer artesanal acompanhado de cookies</h3>
 
-  <p>Do hambúrguer artesanal acompanhado de cookies.</p>
+  <p>
+    Do hambúrguer artesanal acompanhado de cookies.
+  </p>
+
 </article>
 
 <article class="mem mem--sussurro surge">
+
   <div class="mem-topo">
     <span class="mem-num">13</span>
   </div>
 
   <h3>Aquela cerveja que só a gente gosta</h3>
 
-  <p>Daquela cerveja que só a gente gosta e que eu tô louco pra poder encher a cara com você de novo.</p>
+  <p>
+    Daquela cerveja que só a gente gosta e que eu tô louco pra poder encher a cara com você de novo.
+  </p>
+
 </article>
 
 <article class="mem surge">
+
   <div class="mem-topo">
     <span class="mem-num">14</span>
   </div>
 
   <h3>Viagens de van</h3>
 
-  <p>Das viagens de van, sabendo que, por mais cansativas que fossem, me deixavam animado porque eu sabia que iria te ver de novo.</p>
+  <p>
+    Das viagens de van, sabendo que, por mais cansativas que fossem, me deixavam animado porque eu sabia que iria te ver de novo.
+  </p>
 
   <div class="media">
     <img src="fotos/foto-14.jpg" alt="" loading="lazy">
   </div>
+
 </article>
 
 <article class="mem mem--sussurro surge">
+
   <div class="mem-topo">
     <span class="mem-num">15</span>
   </div>
 
   <h3>As minhas pausas pro café no trabalho</h3>
 
-  <p>Das minhas pausas pro café no trabalho, onde tudo que eu fazia era sair correndo pra falar com você.</p>
+  <p>
+    Das minhas pausas pro café no trabalho, onde tudo que eu fazia era sair correndo pra falar com você.
+  </p>
+
 </article>
 
 <article class="mem surge">
+
   <div class="mem-topo">
     <span class="mem-num">16</span>
   </div>
 
   <h3>Açaís de domingo</h3>
 
-  <p>Dos açaís de domingo com gostinho de despedida e choro embargado.</p>
+  <p>
+    Dos açaís de domingo com gostinho de despedida e choro embargado.
+  </p>
 
   <div class="media">
     <img src="fotos/foto-16.jpg" alt="" loading="lazy">
   </div>
+
 </article>
 
 <article class="mem surge">
+
   <div class="mem-topo">
     <span class="mem-num">17</span>
   </div>
 
   <h3>O rolê no Cannil</h3>
 
-  <p>Do rolê no Cannil, junto com bebidas gliteres e aquela sensação de aventura.</p>
+  <p>
+    Do rolê no Cannil, junto com bebidas gliteres e aquela sensação de aventura.
+  </p>
 
   <div class="media">
     <img src="fotos/foto-17.jpg" alt="" loading="lazy">
   </div>
+
 </article>
 
 <article class="mem mem--sussurro surge">
+
   <div class="mem-topo">
     <span class="mem-num">18</span>
   </div>
 
   <h3>Meu amor de carnaval</h3>
 
-  <p>Do meu amor de carnaval, que eu só não sabia que seria o amor da minha vida.</p>
+  <p>
+    Do meu amor de carnaval, que eu só não sabia que seria o amor da minha vida.
+  </p>
+
 </article>
 
-  </section>  <section>
-    <div class="final">  <div class="video-final surge">
+  </section>  <section><div class="final">
+
+  <div class="video-final surge">
+
     <video
       src="video-final.mp4"
       autoplay
       muted
       loop
       playsinline
-      preload="metadata"
+      preload="auto"
     ></video>
+
   </div>
 
-  <p class="trinta surge">30.</p>
+  <p class="trinta surge">
+    30.
+  </p>
 
   <div class="regua"></div>
 
-  <p class="surge">Isso aqui é só um pedaço. Tem muita coisa sua que aconteceu antes de mim e eu nem imagino.</p>
+  <p class="surge">
+    Isso aqui é só um pedaço. Tem muita coisa sua que aconteceu antes de mim e eu nem imagino.
+  </p>
 
-  <p class="surge">Mas as que eu vi, eu guardei. E ainda tem uma vida inteira sua pela frente.</p>
+  <p class="surge">
+    Mas as que eu vi, eu guardei. E ainda tem uma vida inteira sua pela frente.
+  </p>
 
-  <p class="assina surge">Feliz 30, meu bem.</p>
+  <p class="assina surge">
+    Feliz 30, meu bem.
+  </p>
 
 </div>
 
-  </section></main><button id="som" aria-label="Tocar música" aria-pressed="false">
-  <i></i>
-  <i></i>
-  <i></i>
-</button><div id="som-aviso">toca aqui</div><script>
+  </section></main><button id="som" aria-label="Tocar música" aria-pressed="false"><i></i>
+<i></i>
+<i></i>
+
+</button><div id="som-aviso">
+  toca aqui
+</div><script>
 const SENHAS_ACEITAS = [
   "3a1b80321eb8c581e987187bd14a7f7894d8354b23516403ca8d71fde92c2ccf",
   "a2d8fac4af9aba3f662ddf25a7c82bec67d2d0ce31eb7fc28c7b02cff63a5d39",
@@ -1049,6 +1147,7 @@ form.addEventListener("submit",async function(e){
   erros++;
 
   const el=document.createElement("div");
+
   el.className="dica";
 
   el.innerHTML=
@@ -1061,7 +1160,9 @@ form.addEventListener("submit",async function(e){
   campo.focus();
 
   form.classList.remove("errou");
+
   void form.offsetWidth;
+
   form.classList.add("errou");
 
   el.scrollIntoView({
@@ -1071,6 +1172,7 @@ form.addEventListener("submit",async function(e){
 });
 
 function abrir(){
+
   form.style.display="none";
 
   caixaDicas.innerHTML=
@@ -1081,7 +1183,9 @@ function abrir(){
   }catch(e){}
 
   setTimeout(function(){
+
     site.hidden=false;
+
     portao.classList.add("aberto");
 
     document.getElementById("som").classList.add("visivel");
@@ -1091,22 +1195,30 @@ function abrir(){
     setTimeout(function(){
       portao.remove();
     },1000);
+
   },1500);
 }
 
 try{
+
   if(sessionStorage.getItem("meubem")==="1"){
+
     site.hidden=false;
+
     portao.remove();
 
     document.getElementById("som").classList.add("visivel");
+
   }
+
 }catch(e){}
 
 function iniciarAnimacoes(){
+
   const alvos=document.querySelectorAll(".surge");
 
   if(!("IntersectionObserver" in window)){
+
     alvos.forEach(function(el){
       el.classList.add("dentro");
     });
@@ -1115,12 +1227,19 @@ function iniciarAnimacoes(){
   }
 
   const obs=new IntersectionObserver(function(entradas){
+
     entradas.forEach(function(en){
+
       if(en.isIntersecting){
+
         en.target.classList.add("dentro");
+
         obs.unobserve(en.target);
+
       }
+
     });
+
   },{
     rootMargin:"0px 0px -12% 0px",
     threshold:0.05
@@ -1135,6 +1254,10 @@ if(!site.hidden){
   iniciarAnimacoes();
 }
 
+/* =========================
+   ÁUDIO
+   ========================= */
+
 const PLAYLIST=[
   "music/honey-you.mp3",
   "music/caramel.mp3"
@@ -1147,75 +1270,113 @@ let audio=null;
 let faixa=0;
 
 function prepararAudio(){
+
   if(audio) return;
 
   audio=new Audio();
+
   audio.preload="none";
   audio.volume=0.65;
   audio.src=PLAYLIST[faixa];
 
   audio.addEventListener("ended",function(){
+
     faixa=(faixa+1)%PLAYLIST.length;
+
     audio.src=PLAYLIST[faixa];
 
     audio.play().catch(function(){});
+
   });
 
   audio.addEventListener("error",function(){
+
     if(PLAYLIST.length<2){
       return pausar();
     }
 
     faixa=(faixa+1)%PLAYLIST.length;
+
     audio.src=PLAYLIST[faixa];
 
     audio.play().catch(function(){
       pausar();
     });
+
   });
 }
 
 function tocar(){
+
   prepararAudio();
 
   audio.play().then(function(){
+
     botaoSom.classList.add("tocando");
+
     botaoSom.setAttribute("aria-pressed","true");
-    botaoSom.setAttribute("aria-label","Pausar música");
+
+    botaoSom.setAttribute(
+      "aria-label",
+      "Pausar música"
+    );
 
     aviso.classList.remove("visivel");
+
   }).catch(function(){
+
     pausar();
+
   });
 }
 
 function pausar(){
+
   if(audio){
     audio.pause();
   }
 
   botaoSom.classList.remove("tocando");
-  botaoSom.setAttribute("aria-pressed","false");
-  botaoSom.setAttribute("aria-label","Tocar música");
+
+  botaoSom.setAttribute(
+    "aria-pressed",
+    "false"
+  );
+
+  botaoSom.setAttribute(
+    "aria-label",
+    "Tocar música"
+  );
 }
 
 botaoSom.addEventListener("click",function(){
+
   if(audio && !audio.paused){
+
     pausar();
+
   }else{
+
     tocar();
+
   }
+
 });
 
 setTimeout(function(){
+
   if(!botaoSom.classList.contains("visivel")) return;
+
   if(audio && !audio.paused) return;
 
   aviso.classList.add("visivel");
 
   setTimeout(function(){
+
     aviso.classList.remove("visivel");
+
   },4500);
+
 },6000);
 </script></body>
 </html>
